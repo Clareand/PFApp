@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class LandingPage
+Partial Class landingPageMaterial
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,6 +22,7 @@ Partial Class LandingPage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(landingPageMaterial))
         Me.toolStripStatus = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripAddItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaterialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -90,8 +91,8 @@ Partial Class LandingPage
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.dataFindResult)
         Me.GroupBox1.Controls.Add(Me.buttonSearch)
         Me.GroupBox1.Controls.Add(Me.searchStatusItem)
@@ -105,8 +106,8 @@ Partial Class LandingPage
         'dataFindResult
         '
         Me.dataFindResult.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dataFindResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dataFindResult.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Material, Me.alternative})
         Me.dataFindResult.Location = New System.Drawing.Point(6, 65)
@@ -160,6 +161,7 @@ Partial Class LandingPage
         Me.ClientSize = New System.Drawing.Size(684, 461)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "LandingPage"
         Me.Text = "GMF"

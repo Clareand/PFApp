@@ -22,26 +22,28 @@ Partial Class addItemMaterial
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(addItemMaterial))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cbMaterialType = New System.Windows.Forms.ComboBox()
         Me.buttonSearch = New System.Windows.Forms.Button()
-        Me.remarks = New System.Windows.Forms.RichTextBox()
+        Me.tbRemarksMaterial = New System.Windows.Forms.RichTextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.materialDesc = New System.Windows.Forms.TextBox()
+        Me.tbMaterialDesc = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.partNumber = New System.Windows.Forms.TextBox()
+        Me.tbPartNumber = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.buttonSave = New System.Windows.Forms.Button()
+        Me.buttonDelete = New System.Windows.Forms.Button()
+        Me.buttonAdd = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.toolStripStatus = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripAddItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.toolStripReport = New System.Windows.Forms.ToolStripMenuItem()
-        Me.toolStripLogOut = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaterialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EquipmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.toolStripReport = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripLogOut = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -50,26 +52,39 @@ Partial Class addItemMaterial
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.cbMaterialType)
         Me.GroupBox1.Controls.Add(Me.buttonSearch)
-        Me.GroupBox1.Controls.Add(Me.remarks)
+        Me.GroupBox1.Controls.Add(Me.tbRemarksMaterial)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.materialDesc)
+        Me.GroupBox1.Controls.Add(Me.tbMaterialDesc)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.partNumber)
+        Me.GroupBox1.Controls.Add(Me.tbPartNumber)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 35)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(652, 279)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         '
+        'cbMaterialType
+        '
+        Me.cbMaterialType.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbMaterialType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbMaterialType.FormattingEnabled = True
+        Me.cbMaterialType.Location = New System.Drawing.Point(195, 63)
+        Me.cbMaterialType.Name = "cbMaterialType"
+        Me.cbMaterialType.Size = New System.Drawing.Size(439, 28)
+        Me.cbMaterialType.TabIndex = 10
+        Me.cbMaterialType.Text = "Choose One"
+        '
         'buttonSearch
         '
         Me.buttonSearch.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.buttonSearch.Location = New System.Drawing.Point(559, 30)
         Me.buttonSearch.Name = "buttonSearch"
@@ -78,23 +93,23 @@ Partial Class addItemMaterial
         Me.buttonSearch.Text = "Find"
         Me.buttonSearch.UseVisualStyleBackColor = True
         '
-        'remarks
+        'tbRemarksMaterial
         '
-        Me.remarks.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.remarks.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.remarks.Location = New System.Drawing.Point(195, 160)
-        Me.remarks.Name = "remarks"
-        Me.remarks.Size = New System.Drawing.Size(439, 85)
-        Me.remarks.TabIndex = 8
-        Me.remarks.Text = ""
+        Me.tbRemarksMaterial.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbRemarksMaterial.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbRemarksMaterial.Location = New System.Drawing.Point(195, 160)
+        Me.tbRemarksMaterial.Name = "tbRemarksMaterial"
+        Me.tbRemarksMaterial.Size = New System.Drawing.Size(439, 85)
+        Me.tbRemarksMaterial.TabIndex = 8
+        Me.tbRemarksMaterial.Text = ""
         '
         'Label4
         '
         Me.Label4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(18, 163)
@@ -106,8 +121,8 @@ Partial Class addItemMaterial
         'Label3
         '
         Me.Label3.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(18, 99)
@@ -116,22 +131,22 @@ Partial Class addItemMaterial
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Material Description"
         '
-        'materialDesc
+        'tbMaterialDesc
         '
-        Me.materialDesc.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.materialDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.materialDesc.Location = New System.Drawing.Point(195, 96)
-        Me.materialDesc.Name = "materialDesc"
-        Me.materialDesc.Size = New System.Drawing.Size(439, 26)
-        Me.materialDesc.TabIndex = 4
+        Me.tbMaterialDesc.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbMaterialDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMaterialDesc.Location = New System.Drawing.Point(195, 96)
+        Me.tbMaterialDesc.Name = "tbMaterialDesc"
+        Me.tbMaterialDesc.Size = New System.Drawing.Size(439, 26)
+        Me.tbMaterialDesc.TabIndex = 4
         '
         'Label2
         '
         Me.Label2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(18, 65)
@@ -143,8 +158,8 @@ Partial Class addItemMaterial
         'Label1
         '
         Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(18, 33)
@@ -153,50 +168,59 @@ Partial Class addItemMaterial
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Part Number"
         '
-        'partNumber
+        'tbPartNumber
         '
-        Me.partNumber.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.partNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.partNumber.Location = New System.Drawing.Point(195, 30)
-        Me.partNumber.Name = "partNumber"
-        Me.partNumber.Size = New System.Drawing.Size(348, 26)
-        Me.partNumber.TabIndex = 0
+        Me.tbPartNumber.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.tbPartNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbPartNumber.Location = New System.Drawing.Point(195, 30)
+        Me.tbPartNumber.Name = "tbPartNumber"
+        Me.tbPartNumber.Size = New System.Drawing.Size(348, 26)
+        Me.tbPartNumber.TabIndex = 0
         '
         'GroupBox2
         '
         Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox2.Controls.Add(Me.Button3)
-        Me.GroupBox2.Controls.Add(Me.Button1)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.buttonSave)
+        Me.GroupBox2.Controls.Add(Me.buttonDelete)
+        Me.GroupBox2.Controls.Add(Me.buttonAdd)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 349)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(652, 73)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         '
-        'Button3
+        'buttonSave
         '
-        Me.Button3.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(507, 18)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(107, 39)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Save"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.buttonSave.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonSave.Location = New System.Drawing.Point(503, 17)
+        Me.buttonSave.Name = "buttonSave"
+        Me.buttonSave.Size = New System.Drawing.Size(107, 39)
+        Me.buttonSave.TabIndex = 6
+        Me.buttonSave.Text = "Save"
+        Me.buttonSave.UseVisualStyleBackColor = True
         '
-        'Button1
+        'buttonDelete
         '
-        Me.Button1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(49, 19)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(107, 39)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Add"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.buttonDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonDelete.Location = New System.Drawing.Point(42, 17)
+        Me.buttonDelete.Name = "buttonDelete"
+        Me.buttonDelete.Size = New System.Drawing.Size(107, 39)
+        Me.buttonDelete.TabIndex = 5
+        Me.buttonDelete.Text = "Delete"
+        Me.buttonDelete.UseVisualStyleBackColor = True
+        '
+        'buttonAdd
+        '
+        Me.buttonAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonAdd.Location = New System.Drawing.Point(269, 17)
+        Me.buttonAdd.Name = "buttonAdd"
+        Me.buttonAdd.Size = New System.Drawing.Size(107, 39)
+        Me.buttonAdd.TabIndex = 4
+        Me.buttonAdd.Text = "Add"
+        Me.buttonAdd.UseVisualStyleBackColor = True
         '
         'MenuStrip1
         '
@@ -220,6 +244,18 @@ Partial Class addItemMaterial
         Me.toolStripAddItem.Size = New System.Drawing.Size(68, 20)
         Me.toolStripAddItem.Text = "Add Item"
         '
+        'MaterialToolStripMenuItem
+        '
+        Me.MaterialToolStripMenuItem.Name = "MaterialToolStripMenuItem"
+        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.MaterialToolStripMenuItem.Text = "Material"
+        '
+        'EquipmentToolStripMenuItem
+        '
+        Me.EquipmentToolStripMenuItem.Name = "EquipmentToolStripMenuItem"
+        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.EquipmentToolStripMenuItem.Text = "Equipment"
+        '
         'toolStripReport
         '
         Me.toolStripReport.Name = "toolStripReport"
@@ -232,30 +268,6 @@ Partial Class addItemMaterial
         Me.toolStripLogOut.Size = New System.Drawing.Size(62, 20)
         Me.toolStripLogOut.Text = "Log Out"
         '
-        'MaterialToolStripMenuItem
-        '
-        Me.MaterialToolStripMenuItem.Name = "MaterialToolStripMenuItem"
-        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.MaterialToolStripMenuItem.Text = "Material"
-        '
-        'EquipmentToolStripMenuItem
-        '
-        Me.EquipmentToolStripMenuItem.Name = "EquipmentToolStripMenuItem"
-        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.EquipmentToolStripMenuItem.Text = "Equipment"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(195, 63)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(439, 28)
-        Me.ComboBox1.TabIndex = 10
-        '
         'addItemMaterial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -264,6 +276,7 @@ Partial Class addItemMaterial
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "addItemMaterial"
         Me.Text = "Add Item"
         Me.GroupBox1.ResumeLayout(False)
@@ -283,16 +296,17 @@ Partial Class addItemMaterial
     Friend WithEvents toolStripReport As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents toolStripLogOut As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents materialDesc As System.Windows.Forms.TextBox
+    Friend WithEvents tbMaterialDesc As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents partNumber As System.Windows.Forms.TextBox
-    Friend WithEvents remarks As System.Windows.Forms.RichTextBox
+    Friend WithEvents tbPartNumber As System.Windows.Forms.TextBox
+    Friend WithEvents tbRemarksMaterial As System.Windows.Forms.RichTextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents buttonSearch As System.Windows.Forms.Button
     Friend WithEvents MaterialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EquipmentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbMaterialType As System.Windows.Forms.ComboBox
+    Friend WithEvents buttonSave As System.Windows.Forms.Button
+    Friend WithEvents buttonDelete As System.Windows.Forms.Button
+    Friend WithEvents buttonAdd As System.Windows.Forms.Button
 End Class

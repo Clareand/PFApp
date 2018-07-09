@@ -9,3 +9,14 @@ D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Debug\gmfApp.pdb
 D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Debug\gmfApp.LandingPage.resources
 D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Debug\gmfApp.addItemMaterial.resources
 D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Debug\gmfApp.addItemEquipment.resources
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.exe
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.xml
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.pdb
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\bin\Debug\gmfApp.exe
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\bin\Debug\gmfApp.pdb
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\bin\Debug\gmfApp.xml
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.addItemMaterial.resources
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.addItemEquipment.resources
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.LandingPage.resources
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.Resources.resources
+D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.vbproj.GenerateResource.Cache
