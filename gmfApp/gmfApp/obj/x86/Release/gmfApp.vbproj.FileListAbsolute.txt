@@ -1,0 +1,10 @@
+D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\bin\Release\gmfApp.exe
+D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\bin\Release\gmfApp.pdb
+D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\bin\Release\gmfApp.xml
+D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Release\gmfApp.addItem.resources
+D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Release\gmfApp.LandingPage.resources
+D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Release\gmfApp.Resources.resources
+D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Release\gmfApp.vbproj.GenerateResource.Cache
+D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Release\gmfApp.exe
+D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Release\gmfApp.xml
+D:\Clara\Kuliah\Semester 4\KP GMF\gmfApp\gmfApp\obj\x86\Release\gmfApp.pdb
