@@ -79,12 +79,6 @@
     <Compile Include="addItemMaterial.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="addItemEquipment.Designer.vb">
-      <DependentUpon>addItemEquipment.vb</DependentUpon>
-    </Compile>
-    <Compile Include="addItemEquipment.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Connection.vb" />
     <Compile Include="login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
@@ -118,9 +112,6 @@
   <ItemGroup>
     <EmbeddedResource Include="addItemMaterial.resx">
       <DependentUpon>addItemMaterial.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="addItemEquipment.resx">
-      <DependentUpon>addItemEquipment.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="landingPageMaterial.resx">
       <DependentUpon>landingPageMaterial.vb</DependentUpon>

@@ -26,17 +26,24 @@ Partial Class landingPageMaterial
         Me.toolStripStatus = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripAddItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaterialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EquipmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripReport = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripLogOut = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.dataFindResult = New System.Windows.Forms.DataGridView()
-        Me.Material = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.alternative = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.buttonSearch = New System.Windows.Forms.Button()
         Me.searchStatusItem = New System.Windows.Forms.TextBox()
         Me.label1 = New System.Windows.Forms.Label()
+        Me.UniqueCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PartNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MaterialDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Brand = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Stock = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UM = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Equipment = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Location = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Remark = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dataFindResult, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,7 +57,7 @@ Partial Class landingPageMaterial
         '
         'toolStripAddItem
         '
-        Me.toolStripAddItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaterialToolStripMenuItem, Me.EquipmentToolStripMenuItem})
+        Me.toolStripAddItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaterialToolStripMenuItem})
         Me.toolStripAddItem.Name = "toolStripAddItem"
         Me.toolStripAddItem.Size = New System.Drawing.Size(68, 20)
         Me.toolStripAddItem.Text = "Add Item"
@@ -58,14 +65,8 @@ Partial Class landingPageMaterial
         'MaterialToolStripMenuItem
         '
         Me.MaterialToolStripMenuItem.Name = "MaterialToolStripMenuItem"
-        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.MaterialToolStripMenuItem.Text = "Material"
-        '
-        'EquipmentToolStripMenuItem
-        '
-        Me.EquipmentToolStripMenuItem.Name = "EquipmentToolStripMenuItem"
-        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
-        Me.EquipmentToolStripMenuItem.Text = "Equipment"
         '
         'toolStripReport
         '
@@ -109,22 +110,12 @@ Partial Class landingPageMaterial
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dataFindResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dataFindResult.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Material, Me.alternative})
+        Me.dataFindResult.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UniqueCode, Me.PartNumber, Me.MaterialDescription, Me.Brand, Me.Stock, Me.UM, Me.Type, Me.Equipment, Me.Location, Me.Remark})
         Me.dataFindResult.Location = New System.Drawing.Point(6, 65)
         Me.dataFindResult.Name = "dataFindResult"
         Me.dataFindResult.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dataFindResult.Size = New System.Drawing.Size(648, 336)
         Me.dataFindResult.TabIndex = 11
-        '
-        'Material
-        '
-        Me.Material.HeaderText = "Material"
-        Me.Material.Name = "Material"
-        '
-        'alternative
-        '
-        Me.alternative.HeaderText = "Alternatif"
-        Me.alternative.Name = "alternative"
         '
         'buttonSearch
         '
@@ -154,7 +145,59 @@ Partial Class landingPageMaterial
         Me.label1.TabIndex = 5
         Me.label1.Text = "Part Number"
         '
-        'LandingPage
+        'UniqueCode
+        '
+        Me.UniqueCode.DataPropertyName = "llllalala"
+        Me.UniqueCode.HeaderText = "Unique Code"
+        Me.UniqueCode.Name = "UniqueCode"
+        '
+        'PartNumber
+        '
+        Me.PartNumber.HeaderText = "Part Number"
+        Me.PartNumber.Name = "PartNumber"
+        '
+        'MaterialDescription
+        '
+        Me.MaterialDescription.HeaderText = "Material Description"
+        Me.MaterialDescription.Name = "MaterialDescription"
+        '
+        'Brand
+        '
+        Me.Brand.HeaderText = "Brand"
+        Me.Brand.Name = "Brand"
+        '
+        'Stock
+        '
+        Me.Stock.HeaderText = "Stock"
+        Me.Stock.Name = "Stock"
+        '
+        'UM
+        '
+        Me.UM.FillWeight = 50.0!
+        Me.UM.HeaderText = "UM"
+        Me.UM.Name = "UM"
+        '
+        'Type
+        '
+        Me.Type.HeaderText = "Type"
+        Me.Type.Name = "Type"
+        '
+        'Equipment
+        '
+        Me.Equipment.HeaderText = "Equipment"
+        Me.Equipment.Name = "Equipment"
+        '
+        'Location
+        '
+        Me.Location.HeaderText = "Location"
+        Me.Location.Name = "Location"
+        '
+        'Remark
+        '
+        Me.Remark.HeaderText = "Remark"
+        Me.Remark.Name = "Remark"
+        '
+        'landingPageMaterial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -163,7 +206,7 @@ Partial Class landingPageMaterial
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Name = "LandingPage"
+        Me.Name = "landingPageMaterial"
         Me.Text = "GMF"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
@@ -184,9 +227,16 @@ Partial Class landingPageMaterial
     Friend WithEvents searchStatusItem As System.Windows.Forms.TextBox
     Friend WithEvents label1 As System.Windows.Forms.Label
     Friend WithEvents dataFindResult As System.Windows.Forms.DataGridView
-    Friend WithEvents Material As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents alternative As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents MaterialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EquipmentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UniqueCode As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents PartNumber As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents MaterialDescription As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Brand As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Stock As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents UM As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Type As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Equipment As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Location As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Remark As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class

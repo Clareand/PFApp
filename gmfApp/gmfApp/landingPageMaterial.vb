@@ -1,11 +1,13 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Data.OleDb
 
 Public Class landingPageMaterial
 
     Private Sub LandingPage_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If (addItemMaterial.WindowState = FormWindowState.Maximized Or addItemEquipment.WindowState = FormWindowState.Maximized) Then
+        If (addItemMaterial.WindowState = FormWindowState.Maximized) Then
             Me.WindowState = FormWindowState.Maximized
         End If
+
+
     End Sub
 
     Private Sub MaterialToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MaterialToolStripMenuItem.Click
@@ -13,10 +15,8 @@ Public Class landingPageMaterial
         Me.Visible = False
     End Sub
 
-    Private Sub EquipmentToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EquipmentToolStripMenuItem.Click
-        addItemEquipment.Show()
-        Me.Visible = False
+
+    Private Sub dataFindResult_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dataFindResult.CellContentClick
+
     End Sub
-
-
 End Class

@@ -1,9 +1,9 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Data.OleDb
 
 Public Class addItemMaterial
 
     Private Sub addItemMaterial_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If (landingPageMaterial.WindowState = FormWindowState.Maximized Or addItemEquipment.WindowState = FormWindowState.Maximized) Then
+        If (landingPageMaterial.WindowState = FormWindowState.Maximized) Then
             Me.WindowState = FormWindowState.Maximized
         End If
 
@@ -18,13 +18,5 @@ Public Class addItemMaterial
         Me.Visible = False
     End Sub
 
-    Private Sub EquipmentToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EquipmentToolStripMenuItem.Click
-        addItemEquipment.Show()
-        Me.Visible = False
-    End Sub
-
-    Private Sub buttonDelete_Click(sender As System.Object, e As System.EventArgs) Handles buttonDelete.Click
-        
-
-    End Sub
+  
 End Class
