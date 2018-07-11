@@ -10,13 +10,17 @@ Public Class landingPageMaterial
 
     End Sub
 
+    Private Sub toolStripLogOut_Click(sender As System.Object, e As System.EventArgs) Handles toolStripLogOut.Click
+        Me.Close()
+        MessageBox.Show("You are logged out!")
+    End Sub
+
     Private Sub MaterialToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MaterialToolStripMenuItem.Click
         addItemMaterial.Show()
         Me.Visible = False
     End Sub
 
 
-    Private Sub dataFindResult_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dataFindResult.CellContentClick
 
-    End Sub
+    
 End Class

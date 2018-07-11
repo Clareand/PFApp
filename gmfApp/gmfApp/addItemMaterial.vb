@@ -7,16 +7,19 @@ Public Class addItemMaterial
             Me.WindowState = FormWindowState.Maximized
         End If
 
-        cbMaterialType.Items.Add("Air Filter")
-        cbMaterialType.Items.Add("Fuel Filter")
-        cbMaterialType.Items.Add("Oil Filter")
-        cbMaterialType.Items.Add("Other Filter")
+        comboBoxMaterialType.Items.Add("Air Filter")
+        comboBoxMaterialType.Items.Add("Fuel Filter")
+        comboBoxMaterialType.Items.Add("Oil Filter")
+        comboBoxMaterialType.Items.Add("Other Filter")
+    End Sub
+
+    Private Sub toolStripLogOut_Click(sender As System.Object, e As System.EventArgs) Handles toolStripLogOut.Click
+        Me.Close()
+        MessageBox.Show("You are logged out!")
     End Sub
 
     Private Sub toolStripStatus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles toolStripStatus.Click
         landingPageMaterial.Show()
         Me.Visible = False
     End Sub
-
-  
 End Class

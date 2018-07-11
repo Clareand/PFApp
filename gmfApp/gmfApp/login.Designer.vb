@@ -29,7 +29,9 @@ Partial Class login
         Me.Label2 = New System.Windows.Forms.Label()
         Me.tbPassword = New System.Windows.Forms.TextBox()
         Me.buttonLogin = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -64,23 +66,30 @@ Partial Class login
         Me.buttonLogin.Name = "buttonLogin"
         Me.buttonLogin.UseVisualStyleBackColor = True
         '
+        'Panel1
+        '
+        resources.ApplyResources(Me.Panel1, "Panel1")
+        Me.Panel1.Controls.Add(Me.buttonLogin)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.tbPassword)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.tbUsername)
+        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Name = "Panel1"
+        '
         'login
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Controls.Add(Me.buttonLogin)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.tbPassword)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.tbUsername)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Panel1)
         Me.MinimizeBox = False
         Me.Name = "login"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
@@ -89,4 +98,5 @@ Partial Class login
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents tbPassword As System.Windows.Forms.TextBox
     Friend WithEvents buttonLogin As System.Windows.Forms.Button
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 End Class
