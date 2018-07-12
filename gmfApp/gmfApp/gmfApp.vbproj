@@ -49,7 +49,6 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.6.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -79,6 +78,7 @@
     <Compile Include="addItemMaterial.vb">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Connection.vb" />
     <Compile Include="login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
@@ -87,10 +87,19 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="landingPageMaterial.vb">
+=======
+    <Compile Include="addItemEquipment.Designer.vb">
+      <DependentUpon>addItemEquipment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="addItemEquipment.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="landingPageMaterial.Designer.vb">
-      <DependentUpon>landingPageMaterial.vb</DependentUpon>
+    <Compile Include="landingPage.vb">
+>>>>>>> parent of 8587768... Add Login Form
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="landingPage.Designer.vb">
+      <DependentUpon>landingPage.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -113,11 +122,19 @@
     <EmbeddedResource Include="addItemMaterial.resx">
       <DependentUpon>addItemMaterial.vb</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="landingPageMaterial.resx">
       <DependentUpon>landingPageMaterial.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.vb</DependentUpon>
+=======
+    <EmbeddedResource Include="addItemEquipment.resx">
+      <DependentUpon>addItemEquipment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="landingPage.resx">
+      <DependentUpon>landingPage.vb</DependentUpon>
+>>>>>>> parent of 8587768... Add Login Form
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
