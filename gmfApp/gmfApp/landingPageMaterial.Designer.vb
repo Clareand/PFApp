@@ -31,7 +31,10 @@ Partial Class landingPageMaterial
         Me.toolStripLogOut = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.buttonExport = New System.Windows.Forms.Button()
         Me.dataFindResult = New System.Windows.Forms.DataGridView()
+        Me.buttonSearch = New System.Windows.Forms.Button()
+        Me.searchStatusItem = New System.Windows.Forms.TextBox()
         Me.UniqueCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PartNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,9 +45,6 @@ Partial Class landingPageMaterial
         Me.Equipment = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Location = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Remark = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.buttonSearch = New System.Windows.Forms.Button()
-        Me.searchStatusItem = New System.Windows.Forms.TextBox()
-        Me.buttonExport = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dataFindResult, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,6 +77,7 @@ Partial Class landingPageMaterial
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripStatus, Me.toolStripAddItem, Me.toolStripLogOut})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -87,8 +88,9 @@ Partial Class landingPageMaterial
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Controls.Add(Me.buttonExport)
         Me.GroupBox1.Controls.Add(Me.dataFindResult)
         Me.GroupBox1.Controls.Add(Me.buttonSearch)
@@ -99,11 +101,23 @@ Partial Class landingPageMaterial
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         '
+        'buttonExport
+        '
+        Me.buttonExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonExport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonExport.Location = New System.Drawing.Point(575, 428)
+        Me.buttonExport.Name = "buttonExport"
+        Me.buttonExport.Size = New System.Drawing.Size(75, 29)
+        Me.buttonExport.TabIndex = 12
+        Me.buttonExport.Text = "Export"
+        Me.buttonExport.UseVisualStyleBackColor = True
+        '
         'dataFindResult
         '
         Me.dataFindResult.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dataFindResult.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -129,58 +143,6 @@ Partial Class landingPageMaterial
         Me.dataFindResult.Size = New System.Drawing.Size(648, 353)
         Me.dataFindResult.TabIndex = 11
         '
-        'UniqueCode
-        '
-        Me.UniqueCode.DataPropertyName = "llllalala"
-        Me.UniqueCode.HeaderText = "Unique Code"
-        Me.UniqueCode.Name = "UniqueCode"
-        '
-        'PartNumber
-        '
-        Me.PartNumber.HeaderText = "Part Number"
-        Me.PartNumber.Name = "PartNumber"
-        '
-        'MaterialDescription
-        '
-        Me.MaterialDescription.HeaderText = "Material Description"
-        Me.MaterialDescription.Name = "MaterialDescription"
-        '
-        'Brand
-        '
-        Me.Brand.HeaderText = "Brand"
-        Me.Brand.Name = "Brand"
-        '
-        'Stock
-        '
-        Me.Stock.HeaderText = "Stock"
-        Me.Stock.Name = "Stock"
-        '
-        'UM
-        '
-        Me.UM.FillWeight = 50.0!
-        Me.UM.HeaderText = "UM"
-        Me.UM.Name = "UM"
-        '
-        'Type
-        '
-        Me.Type.HeaderText = "Type"
-        Me.Type.Name = "Type"
-        '
-        'Equipment
-        '
-        Me.Equipment.HeaderText = "Equipment"
-        Me.Equipment.Name = "Equipment"
-        '
-        'Location
-        '
-        Me.Location.HeaderText = "Location"
-        Me.Location.Name = "Location"
-        '
-        'Remark
-        '
-        Me.Remark.HeaderText = "Remark"
-        Me.Remark.Name = "Remark"
-        '
         'buttonSearch
         '
         Me.buttonSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -199,21 +161,73 @@ Partial Class landingPageMaterial
         Me.searchStatusItem.Size = New System.Drawing.Size(317, 26)
         Me.searchStatusItem.TabIndex = 6
         '
-        'buttonExport
+        'UniqueCode
         '
-        Me.buttonExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonExport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonExport.Location = New System.Drawing.Point(575, 428)
-        Me.buttonExport.Name = "buttonExport"
-        Me.buttonExport.Size = New System.Drawing.Size(75, 29)
-        Me.buttonExport.TabIndex = 12
-        Me.buttonExport.Text = "Export"
-        Me.buttonExport.UseVisualStyleBackColor = True
+        Me.UniqueCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.UniqueCode.DataPropertyName = "llllalala"
+        Me.UniqueCode.HeaderText = "Unique Code"
+        Me.UniqueCode.Name = "UniqueCode"
+        '
+        'PartNumber
+        '
+        Me.PartNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.PartNumber.HeaderText = "Part Number"
+        Me.PartNumber.Name = "PartNumber"
+        '
+        'MaterialDescription
+        '
+        Me.MaterialDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.MaterialDescription.HeaderText = "Material Description"
+        Me.MaterialDescription.Name = "MaterialDescription"
+        '
+        'Brand
+        '
+        Me.Brand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Brand.HeaderText = "Brand"
+        Me.Brand.Name = "Brand"
+        '
+        'Stock
+        '
+        Me.Stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Stock.HeaderText = "Stock"
+        Me.Stock.Name = "Stock"
+        '
+        'UM
+        '
+        Me.UM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.UM.FillWeight = 50.0!
+        Me.UM.HeaderText = "UM"
+        Me.UM.Name = "UM"
+        '
+        'Type
+        '
+        Me.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Type.HeaderText = "Type"
+        Me.Type.Name = "Type"
+        '
+        'Equipment
+        '
+        Me.Equipment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Equipment.HeaderText = "Equipment"
+        Me.Equipment.Name = "Equipment"
+        '
+        'Location
+        '
+        Me.Location.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Location.HeaderText = "Location"
+        Me.Location.Name = "Location"
+        '
+        'Remark
+        '
+        Me.Remark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Remark.HeaderText = "Remark"
+        Me.Remark.Name = "Remark"
         '
         'landingPageMaterial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(684, 525)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -239,6 +253,7 @@ Partial Class landingPageMaterial
     Friend WithEvents searchStatusItem As System.Windows.Forms.TextBox
     Friend WithEvents dataFindResult As System.Windows.Forms.DataGridView
     Friend WithEvents MaterialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents buttonExport As System.Windows.Forms.Button
     Friend WithEvents UniqueCode As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PartNumber As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents MaterialDescription As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -249,6 +264,5 @@ Partial Class landingPageMaterial
     Friend WithEvents Equipment As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Location As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Remark As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents buttonExport As System.Windows.Forms.Button
 
 End Class
