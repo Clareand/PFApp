@@ -32,11 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-<<<<<<< HEAD
             Me.MainForm = Global.gmfApp.login
-=======
-            Me.MainForm = Global.gmfApp.LandingPage
->>>>>>> parent of 8587768... Add Login Form
         End Sub
     End Class
 End Namespace

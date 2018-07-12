@@ -120,7 +120,6 @@
   <metadata name="MenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-<<<<<<< HEAD
   <metadata name="Equipment.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1995,6 +1994,4 @@
         AQAAwAEAAMAPAACAPwAAgf8AAP//AAD//wAA//8AAP//AAA=
 </value>
   </data>
-=======
->>>>>>> parent of 8587768... Add Login Form
 </root>
