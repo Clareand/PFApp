@@ -22,4 +22,8 @@ Public Class addItemMaterial
         landingPageMaterial.Show()
         Me.Visible = False
     End Sub
+
+    Private Sub MenuStrip1_ItemClicked(sender As System.Object, e As System.Windows.Forms.ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
 End Class

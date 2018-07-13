@@ -24,6 +24,7 @@ Partial Class landingPageMaterial
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(landingPageMaterial))
         Me.toolStripStatus = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripAddItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -33,8 +34,6 @@ Partial Class landingPageMaterial
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.buttonExport = New System.Windows.Forms.Button()
         Me.dataFindResult = New System.Windows.Forms.DataGridView()
-        Me.buttonSearch = New System.Windows.Forms.Button()
-        Me.searchStatusItem = New System.Windows.Forms.TextBox()
         Me.UniqueCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PartNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,6 +44,8 @@ Partial Class landingPageMaterial
         Me.Equipment = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Location = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Remark = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.buttonSearch = New System.Windows.Forms.Button()
+        Me.searchStatusItem = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dataFindResult, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,7 +67,7 @@ Partial Class landingPageMaterial
         'MaterialToolStripMenuItem
         '
         Me.MaterialToolStripMenuItem.Name = "MaterialToolStripMenuItem"
-        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.MaterialToolStripMenuItem.Text = "Material"
         '
         'toolStripLogOut
@@ -77,7 +78,7 @@ Partial Class landingPageMaterial
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.MenuStrip1.BackColor = System.Drawing.Color.Lavender
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripStatus, Me.toolStripAddItem, Me.toolStripLogOut})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -88,8 +89,8 @@ Partial Class landingPageMaterial
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Controls.Add(Me.buttonExport)
         Me.GroupBox1.Controls.Add(Me.dataFindResult)
@@ -115,11 +116,11 @@ Partial Class landingPageMaterial
         'dataFindResult
         '
         Me.dataFindResult.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dataFindResult.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Black
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Info
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
@@ -139,27 +140,17 @@ Partial Class landingPageMaterial
         Me.dataFindResult.EnableHeadersVisualStyles = False
         Me.dataFindResult.Location = New System.Drawing.Point(6, 65)
         Me.dataFindResult.Name = "dataFindResult"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataFindResult.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dataFindResult.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dataFindResult.Size = New System.Drawing.Size(648, 353)
         Me.dataFindResult.TabIndex = 11
-        '
-        'buttonSearch
-        '
-        Me.buttonSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonSearch.Location = New System.Drawing.Point(329, 18)
-        Me.buttonSearch.Name = "buttonSearch"
-        Me.buttonSearch.Size = New System.Drawing.Size(75, 29)
-        Me.buttonSearch.TabIndex = 7
-        Me.buttonSearch.Text = "Search"
-        Me.buttonSearch.UseVisualStyleBackColor = True
-        '
-        'searchStatusItem
-        '
-        Me.searchStatusItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.searchStatusItem.Location = New System.Drawing.Point(6, 21)
-        Me.searchStatusItem.Name = "searchStatusItem"
-        Me.searchStatusItem.Size = New System.Drawing.Size(317, 26)
-        Me.searchStatusItem.TabIndex = 6
         '
         'UniqueCode
         '
@@ -222,6 +213,24 @@ Partial Class landingPageMaterial
         Me.Remark.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Remark.HeaderText = "Remark"
         Me.Remark.Name = "Remark"
+        '
+        'buttonSearch
+        '
+        Me.buttonSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonSearch.Location = New System.Drawing.Point(329, 18)
+        Me.buttonSearch.Name = "buttonSearch"
+        Me.buttonSearch.Size = New System.Drawing.Size(75, 29)
+        Me.buttonSearch.TabIndex = 7
+        Me.buttonSearch.Text = "Search"
+        Me.buttonSearch.UseVisualStyleBackColor = True
+        '
+        'searchStatusItem
+        '
+        Me.searchStatusItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.searchStatusItem.Location = New System.Drawing.Point(6, 21)
+        Me.searchStatusItem.Name = "searchStatusItem"
+        Me.searchStatusItem.Size = New System.Drawing.Size(317, 26)
+        Me.searchStatusItem.TabIndex = 6
         '
         'landingPageMaterial
         '

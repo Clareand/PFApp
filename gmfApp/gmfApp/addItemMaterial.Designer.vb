@@ -61,15 +61,12 @@ Partial Class addItemMaterial
         Me.buttonAddEquipment = New System.Windows.Forms.Button()
         Me.tbPartNumber = New System.Windows.Forms.TextBox()
         Me.dataGridViewEquipment = New System.Windows.Forms.DataGridView()
+        Me.Equipment = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.buttonDeleteEquipment = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.buttonEditMaterial = New System.Windows.Forms.Button()
         Me.dataGridViewMaterial = New System.Windows.Forms.DataGridView()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.daraGridViewAlernative = New System.Windows.Forms.DataGridView()
-        Me.groupBoxMaterial = New System.Windows.Forms.GroupBox()
-        Me.groupBoxAlternatif = New System.Windows.Forms.GroupBox()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -80,6 +77,8 @@ Partial Class addItemMaterial
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.daraGridViewAlernative = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -90,7 +89,8 @@ Partial Class addItemMaterial
         Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Equipment = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.groupBoxMaterial = New System.Windows.Forms.GroupBox()
+        Me.groupBoxAlternatif = New System.Windows.Forms.GroupBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dataGridViewEquipment, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,7 +103,7 @@ Partial Class addItemMaterial
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.MenuStrip1.BackColor = System.Drawing.Color.Lavender
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripStatus, Me.toolStripAddItem, Me.toolStripLogOut})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -145,7 +145,7 @@ Partial Class addItemMaterial
         'Label5
         '
         Me.Label5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(12, 22)
@@ -157,7 +157,7 @@ Partial Class addItemMaterial
         'tbUniqueCode
         '
         Me.tbUniqueCode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbUniqueCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbUniqueCode.Location = New System.Drawing.Point(189, 19)
         Me.tbUniqueCode.Name = "tbUniqueCode"
@@ -167,11 +167,11 @@ Partial Class addItemMaterial
         'buttonUniqueCode
         '
         Me.buttonUniqueCode.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonUniqueCode.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonUniqueCode.Location = New System.Drawing.Point(493, 18)
+        Me.buttonUniqueCode.Location = New System.Drawing.Point(509, 18)
         Me.buttonUniqueCode.Name = "buttonUniqueCode"
-        Me.buttonUniqueCode.Size = New System.Drawing.Size(93, 27)
+        Me.buttonUniqueCode.Size = New System.Drawing.Size(77, 27)
         Me.buttonUniqueCode.TabIndex = 13
         Me.buttonUniqueCode.Text = "Find"
         Me.buttonUniqueCode.UseVisualStyleBackColor = True
@@ -243,8 +243,8 @@ Partial Class addItemMaterial
         'Label8
         '
         Me.Label8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(14, 151)
@@ -256,7 +256,7 @@ Partial Class addItemMaterial
         'comboBoxUM
         '
         Me.comboBoxUM.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.comboBoxUM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.comboBoxUM.FormattingEnabled = True
         Me.comboBoxUM.Location = New System.Drawing.Point(189, 147)
@@ -267,8 +267,8 @@ Partial Class addItemMaterial
         'Label7
         '
         Me.Label7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(12, 114)
@@ -280,7 +280,7 @@ Partial Class addItemMaterial
         'Label4
         '
         Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(12, 394)
@@ -292,7 +292,7 @@ Partial Class addItemMaterial
         'tbStock
         '
         Me.tbStock.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbStock.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbStock.Location = New System.Drawing.Point(189, 111)
         Me.tbStock.Name = "tbStock"
@@ -302,7 +302,7 @@ Partial Class addItemMaterial
         'Label9
         '
         Me.Label9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(14, 218)
@@ -314,8 +314,8 @@ Partial Class addItemMaterial
         'Label6
         '
         Me.Label6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(12, 81)
@@ -327,7 +327,7 @@ Partial Class addItemMaterial
         'tbRemarksMaterial
         '
         Me.tbRemarksMaterial.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbRemarksMaterial.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbRemarksMaterial.Location = New System.Drawing.Point(189, 391)
         Me.tbRemarksMaterial.Name = "tbRemarksMaterial"
@@ -338,7 +338,7 @@ Partial Class addItemMaterial
         'comboBoxMaterialType
         '
         Me.comboBoxMaterialType.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.comboBoxMaterialType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.comboBoxMaterialType.FormattingEnabled = True
         Me.comboBoxMaterialType.Location = New System.Drawing.Point(189, 182)
@@ -350,7 +350,7 @@ Partial Class addItemMaterial
         'comboBoxEquipment
         '
         Me.comboBoxEquipment.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.comboBoxEquipment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.comboBoxEquipment.FormattingEnabled = True
         Me.comboBoxEquipment.Location = New System.Drawing.Point(189, 218)
@@ -361,7 +361,7 @@ Partial Class addItemMaterial
         'Label2
         '
         Me.Label2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(12, 184)
@@ -373,7 +373,7 @@ Partial Class addItemMaterial
         'tbLocation
         '
         Me.tbLocation.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbLocation.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbLocation.Location = New System.Drawing.Point(189, 347)
         Me.tbLocation.Name = "tbLocation"
@@ -383,7 +383,7 @@ Partial Class addItemMaterial
         'tbBrand
         '
         Me.tbBrand.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbBrand.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbBrand.Location = New System.Drawing.Point(189, 78)
         Me.tbBrand.Name = "tbBrand"
@@ -393,7 +393,7 @@ Partial Class addItemMaterial
         'Label10
         '
         Me.Label10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(12, 350)
@@ -405,7 +405,7 @@ Partial Class addItemMaterial
         'Label3
         '
         Me.Label3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(12, 48)
@@ -428,7 +428,7 @@ Partial Class addItemMaterial
         'tbMaterialDesc
         '
         Me.tbMaterialDesc.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbMaterialDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbMaterialDesc.Location = New System.Drawing.Point(189, 45)
         Me.tbMaterialDesc.Name = "tbMaterialDesc"
@@ -449,7 +449,7 @@ Partial Class addItemMaterial
         'tbPartNumber
         '
         Me.tbPartNumber.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbPartNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbPartNumber.Location = New System.Drawing.Point(189, 13)
         Me.tbPartNumber.Name = "tbPartNumber"
@@ -474,10 +474,16 @@ Partial Class addItemMaterial
         Me.dataGridViewEquipment.Size = New System.Drawing.Size(296, 81)
         Me.dataGridViewEquipment.TabIndex = 26
         '
+        'Equipment
+        '
+        Me.Equipment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Equipment.HeaderText = "Equipment"
+        Me.Equipment.Name = "Equipment"
+        '
         'Label1
         '
         Me.Label1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(12, 16)
@@ -501,7 +507,7 @@ Partial Class addItemMaterial
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(557, 187)
+        Me.Button1.Location = New System.Drawing.Point(573, 187)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(90, 27)
         Me.Button1.TabIndex = 35
@@ -512,7 +518,7 @@ Partial Class addItemMaterial
         '
         Me.buttonEditMaterial.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonEditMaterial.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonEditMaterial.Location = New System.Drawing.Point(461, 187)
+        Me.buttonEditMaterial.Location = New System.Drawing.Point(477, 187)
         Me.buttonEditMaterial.Name = "buttonEditMaterial"
         Me.buttonEditMaterial.Size = New System.Drawing.Size(90, 27)
         Me.buttonEditMaterial.TabIndex = 34
@@ -522,8 +528,8 @@ Partial Class addItemMaterial
         'dataGridViewMaterial
         '
         Me.dataGridViewMaterial.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dataGridViewMaterial.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
@@ -538,93 +544,8 @@ Partial Class addItemMaterial
         Me.dataGridViewMaterial.GridColor = System.Drawing.SystemColors.ControlDarkDark
         Me.dataGridViewMaterial.Location = New System.Drawing.Point(7, 19)
         Me.dataGridViewMaterial.Name = "dataGridViewMaterial"
-        Me.dataGridViewMaterial.Size = New System.Drawing.Size(647, 160)
+        Me.dataGridViewMaterial.Size = New System.Drawing.Size(663, 160)
         Me.dataGridViewMaterial.TabIndex = 33
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox2.Controls.Add(Me.buttonDeleteEquipment)
-        Me.GroupBox2.Controls.Add(Me.buttonAddPN)
-        Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.dataGridViewEquipment)
-        Me.GroupBox2.Controls.Add(Me.buttonClearPN)
-        Me.GroupBox2.Controls.Add(Me.tbPartNumber)
-        Me.GroupBox2.Controls.Add(Me.buttonSave)
-        Me.GroupBox2.Controls.Add(Me.buttonAddEquipment)
-        Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.tbMaterialDesc)
-        Me.GroupBox2.Controls.Add(Me.comboBoxUM)
-        Me.GroupBox2.Controls.Add(Me.buttonSearchPN)
-        Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.Label10)
-        Me.GroupBox2.Controls.Add(Me.tbStock)
-        Me.GroupBox2.Controls.Add(Me.tbBrand)
-        Me.GroupBox2.Controls.Add(Me.Label9)
-        Me.GroupBox2.Controls.Add(Me.tbLocation)
-        Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.tbRemarksMaterial)
-        Me.GroupBox2.Controls.Add(Me.comboBoxEquipment)
-        Me.GroupBox2.Controls.Add(Me.comboBoxMaterialType)
-        Me.GroupBox2.Location = New System.Drawing.Point(0, 106)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(606, 645)
-        Me.GroupBox2.TabIndex = 36
-        Me.GroupBox2.TabStop = False
-        '
-        'daraGridViewAlernative
-        '
-        Me.daraGridViewAlernative.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.daraGridViewAlernative.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.daraGridViewAlernative.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.daraGridViewAlernative.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.daraGridViewAlernative.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20})
-        Me.daraGridViewAlernative.Location = New System.Drawing.Point(11, 27)
-        Me.daraGridViewAlernative.Name = "daraGridViewAlernative"
-        Me.daraGridViewAlernative.Size = New System.Drawing.Size(662, 428)
-        Me.daraGridViewAlernative.TabIndex = 37
-        '
-        'groupBoxMaterial
-        '
-        Me.groupBoxMaterial.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.groupBoxMaterial.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.groupBoxMaterial.Controls.Add(Me.Button1)
-        Me.groupBoxMaterial.Controls.Add(Me.buttonEditMaterial)
-        Me.groupBoxMaterial.Controls.Add(Me.dataGridViewMaterial)
-        Me.groupBoxMaterial.Location = New System.Drawing.Point(605, 27)
-        Me.groupBoxMaterial.Name = "groupBoxMaterial"
-        Me.groupBoxMaterial.Size = New System.Drawing.Size(663, 224)
-        Me.groupBoxMaterial.TabIndex = 38
-        Me.groupBoxMaterial.TabStop = False
-        Me.groupBoxMaterial.Text = "Material"
-        '
-        'groupBoxAlternatif
-        '
-        Me.groupBoxAlternatif.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.groupBoxAlternatif.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.groupBoxAlternatif.Controls.Add(Me.daraGridViewAlernative)
-        Me.groupBoxAlternatif.Controls.Add(Me.buttonDeleteAlternative)
-        Me.groupBoxAlternatif.Controls.Add(Me.buttonEditAlternatif)
-        Me.groupBoxAlternatif.Location = New System.Drawing.Point(605, 247)
-        Me.groupBoxAlternatif.Name = "groupBoxAlternatif"
-        Me.groupBoxAlternatif.Size = New System.Drawing.Size(679, 504)
-        Me.groupBoxAlternatif.TabIndex = 39
-        Me.groupBoxAlternatif.TabStop = False
-        Me.groupBoxAlternatif.Text = "Alternative"
         '
         'DataGridViewTextBoxColumn1
         '
@@ -696,6 +617,61 @@ Partial Class addItemMaterial
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         Me.DataGridViewTextBoxColumn10.Width = 75
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox2.Controls.Add(Me.buttonDeleteEquipment)
+        Me.GroupBox2.Controls.Add(Me.buttonAddPN)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.dataGridViewEquipment)
+        Me.GroupBox2.Controls.Add(Me.buttonClearPN)
+        Me.GroupBox2.Controls.Add(Me.tbPartNumber)
+        Me.GroupBox2.Controls.Add(Me.buttonSave)
+        Me.GroupBox2.Controls.Add(Me.buttonAddEquipment)
+        Me.GroupBox2.Controls.Add(Me.Label8)
+        Me.GroupBox2.Controls.Add(Me.tbMaterialDesc)
+        Me.GroupBox2.Controls.Add(Me.comboBoxUM)
+        Me.GroupBox2.Controls.Add(Me.buttonSearchPN)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.Label10)
+        Me.GroupBox2.Controls.Add(Me.tbStock)
+        Me.GroupBox2.Controls.Add(Me.tbBrand)
+        Me.GroupBox2.Controls.Add(Me.Label9)
+        Me.GroupBox2.Controls.Add(Me.tbLocation)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.tbRemarksMaterial)
+        Me.GroupBox2.Controls.Add(Me.comboBoxEquipment)
+        Me.GroupBox2.Controls.Add(Me.comboBoxMaterialType)
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 106)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(606, 645)
+        Me.GroupBox2.TabIndex = 36
+        Me.GroupBox2.TabStop = False
+        '
+        'daraGridViewAlernative
+        '
+        Me.daraGridViewAlernative.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.daraGridViewAlernative.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.daraGridViewAlernative.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.daraGridViewAlernative.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.daraGridViewAlernative.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20})
+        Me.daraGridViewAlernative.Location = New System.Drawing.Point(11, 27)
+        Me.daraGridViewAlernative.Name = "daraGridViewAlernative"
+        Me.daraGridViewAlernative.Size = New System.Drawing.Size(656, 428)
+        Me.daraGridViewAlernative.TabIndex = 37
+        '
         'DataGridViewTextBoxColumn11
         '
         Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -766,16 +742,42 @@ Partial Class addItemMaterial
         Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
         Me.DataGridViewTextBoxColumn20.Width = 75
         '
-        'Equipment
+        'groupBoxMaterial
         '
-        Me.Equipment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Equipment.HeaderText = "Equipment"
-        Me.Equipment.Name = "Equipment"
+        Me.groupBoxMaterial.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.groupBoxMaterial.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.groupBoxMaterial.Controls.Add(Me.Button1)
+        Me.groupBoxMaterial.Controls.Add(Me.buttonEditMaterial)
+        Me.groupBoxMaterial.Controls.Add(Me.dataGridViewMaterial)
+        Me.groupBoxMaterial.Location = New System.Drawing.Point(605, 27)
+        Me.groupBoxMaterial.Name = "groupBoxMaterial"
+        Me.groupBoxMaterial.Size = New System.Drawing.Size(679, 224)
+        Me.groupBoxMaterial.TabIndex = 38
+        Me.groupBoxMaterial.TabStop = False
+        Me.groupBoxMaterial.Text = "Material"
+        '
+        'groupBoxAlternatif
+        '
+        Me.groupBoxAlternatif.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.groupBoxAlternatif.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.groupBoxAlternatif.Controls.Add(Me.daraGridViewAlernative)
+        Me.groupBoxAlternatif.Controls.Add(Me.buttonDeleteAlternative)
+        Me.groupBoxAlternatif.Controls.Add(Me.buttonEditAlternatif)
+        Me.groupBoxAlternatif.Location = New System.Drawing.Point(605, 247)
+        Me.groupBoxAlternatif.Name = "groupBoxAlternatif"
+        Me.groupBoxAlternatif.Size = New System.Drawing.Size(679, 504)
+        Me.groupBoxAlternatif.TabIndex = 39
+        Me.groupBoxAlternatif.TabStop = False
+        Me.groupBoxAlternatif.Text = "Alternative"
         '
         'addItemMaterial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(1284, 749)
         Me.Controls.Add(Me.groupBoxAlternatif)
         Me.Controls.Add(Me.groupBoxMaterial)
