@@ -19,8 +19,9 @@ Public Class landingPageMaterial
         addItemMaterial.Show()
         Me.Visible = False
     End Sub
-
-
-
     
+    Private Sub HistoryToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles HistoryToolStripMenuItem.Click
+        history.Show()
+        Me.Visible = False
+    End Sub
 End Class

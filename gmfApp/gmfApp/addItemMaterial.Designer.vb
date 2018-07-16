@@ -31,6 +31,7 @@ Partial Class addItemMaterial
         Me.toolStripAddItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaterialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EquipmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripLogOut = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.tbUniqueCode = New System.Windows.Forms.TextBox()
@@ -104,7 +105,7 @@ Partial Class addItemMaterial
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.Lavender
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripStatus, Me.toolStripAddItem, Me.toolStripLogOut})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripStatus, Me.toolStripAddItem, Me.HistoryToolStripMenuItem, Me.toolStripLogOut})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1284, 24)
@@ -121,20 +122,26 @@ Partial Class addItemMaterial
         '
         Me.toolStripAddItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaterialToolStripMenuItem, Me.EquipmentToolStripMenuItem})
         Me.toolStripAddItem.Name = "toolStripAddItem"
-        Me.toolStripAddItem.Size = New System.Drawing.Size(68, 20)
-        Me.toolStripAddItem.Text = "Add Item"
+        Me.toolStripAddItem.Size = New System.Drawing.Size(43, 20)
+        Me.toolStripAddItem.Text = "Item"
         '
         'MaterialToolStripMenuItem
         '
         Me.MaterialToolStripMenuItem.Name = "MaterialToolStripMenuItem"
-        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MaterialToolStripMenuItem.Text = "Material"
         '
         'EquipmentToolStripMenuItem
         '
         Me.EquipmentToolStripMenuItem.Name = "EquipmentToolStripMenuItem"
-        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EquipmentToolStripMenuItem.Text = "Equipment"
+        '
+        'HistoryToolStripMenuItem
+        '
+        Me.HistoryToolStripMenuItem.Name = "HistoryToolStripMenuItem"
+        Me.HistoryToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.HistoryToolStripMenuItem.Text = "History"
         '
         'toolStripLogOut
         '
@@ -210,7 +217,7 @@ Partial Class addItemMaterial
         '
         Me.buttonDeleteAlternative.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonDeleteAlternative.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonDeleteAlternative.Location = New System.Drawing.Point(574, 463)
+        Me.buttonDeleteAlternative.Location = New System.Drawing.Point(574, 449)
         Me.buttonDeleteAlternative.Name = "buttonDeleteAlternative"
         Me.buttonDeleteAlternative.Size = New System.Drawing.Size(90, 27)
         Me.buttonDeleteAlternative.TabIndex = 31
@@ -221,7 +228,7 @@ Partial Class addItemMaterial
         '
         Me.buttonEditAlternatif.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonEditAlternatif.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonEditAlternatif.Location = New System.Drawing.Point(478, 463)
+        Me.buttonEditAlternatif.Location = New System.Drawing.Point(478, 449)
         Me.buttonEditAlternatif.Name = "buttonEditAlternatif"
         Me.buttonEditAlternatif.Size = New System.Drawing.Size(90, 27)
         Me.buttonEditAlternatif.TabIndex = 30
@@ -257,12 +264,17 @@ Partial Class addItemMaterial
         '
         Me.comboBoxUM.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.comboBoxUM.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.comboBoxUM.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.comboBoxUM.DisplayMember = """ (Inch)"
         Me.comboBoxUM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.comboBoxUM.FormattingEnabled = True
+        Me.comboBoxUM.Items.AddRange(New Object() {""" (Inch)", """2 (Square inch)", """3 (Cubic inch)", "% (Percentage)", "%O (Permile)", "000 (Meter/Minute)", "ACR (Acre)", "AU (Activity unit)", "BAG (Bag)", "BLD (Brake Landings)", "BOX (BOX)", "BT (Bottle)", "C3S (Cubic centimeter/second)", "CAN (Canister)", "CAR (Carton)", "CCM (Cubic centimeter)", "CD3 (Cubic decimeter)", "CL (Centiliter)", "CM (Centimeter)", "CM2 (Square centimeter)", "CMS (Centimeter/second)", "CRT (Crate)", "CV (Case)", "CYC (CYCLES)", "D (Days)", "DAY (Days)", "DB (Decibel)", "DEG (Degree)", "DM (Decimeter)", "DR (Drum)", "DZ (Dozen)", "CM2 (Square centimeter)", "CMS (Centimeter/second)", "CRT (Crate)", "CV (Case)", "CYC (CYCLES)", "EA (each)", "EML (Enzyme Units/Milliliter)", "EU (Enzyme Units)", "FOZ (Fluid Ounce US)", "FT (Foot)", "FT2 (Square foot)", "FT3 (Cubic foot)", "G (Gram)", "G/L (gram act.ingrd/liter)", "GAI (Gram act.ingrd.)", "GAL (US gallon)", "GAU (Gram Gold)", "GJ (Gigajoule)", "GLI (Gram/liter)", "GM (Gram/Mol)", "GM2 (Gram/square meter)", "GM3 (Gram/Cubic meter)", "GOH (Gigaohm)", "GPH (Gallons per hour {US})", "GPM (Gallons per mile {US})", "GRO (Gross)", "H (Hour)", "HA (Hectare)", "HL (Hectoliter)", "HR (Hours)", "HRS (Hours)", "IB (Pikofarad)", "JKG (Joule/Kilogram)", "JKK (Spec. Heat Capacity)", "JMO (Joule/Mol)", "KAI (Kilogram act.ingrd.)", "KD3 (Kilogram/cubic decimeter)", "KG (Kilogram)", "KGM (Kilogram/Mol)", "KGS (Kilogram/second)", "KGV (Kilogram/cubic meter)", "KIK (kg act.ingrd./kg)", "KIT (KIT)", "KJK (Kilojoule/kilogram)", "KJM (Kilojoule/Mol)", "KM (Kilometer)", "KM2 (Square kilometer)", "KMH (Kilometer/hour)", "KMN (Kelvin/Minute)", "KMS (Kelvin/Second)", "KPA (Kilopascal)", "KT (Kilotonne)", "KVA (Kilovoltampere)", "L (Liter)", "LB (US pound)", "LDG (LANDINGS)", "LHK (Liter per 100 km)", "LMI (Liter/Minute)", "LMS (Liter/Molsecond)", "LOT (lot)", "LPH (Liter per hour)", "M (Meter)", "M-2 (1/square meter)", "M/H (Meter/Hour)", "M/L (Mol per liter)", "M/M (Mol per cubic meter)", "M/S (Meter/second)", "M2 (Square meter)", "M2S (Square meter/second)", "M3 (Cubic meter)", "M3H (Cubic meter/Hour)", "M3S (Cubic meter/second)", "MEJ (Megajoule)", "MG (Milligram)", "MGL (Milligram/liter)", "MGO (Megohm)", "MGQ (Milligram/cubic meter)", "MHV (Megavolt)", "MI (Mile)", "MI2 (Square mile)", "MIN (Minute)", "MIS (Microsecond)", "ML (Milliliter)", "MLI (Milliliter act.ingr.)", "MM (Millimeter)", "MM2 (Square millimeter)", "MM3 (Cubic millimeter)", "MN (Meganewton)", "MNM (Milli newton/meter)", "MON (Months)", "MPG (Miles per gallon {US})", "MPL (Millimol per liter)", "MPS (Millipascal seconds)", "MS2 (Meter/second squared)", "MSC (Microsiemens per centim)", "MSE (Millisecond)", "MVA (Megavoltampere)", "MWH (Megawatt hour)", "NA (Nanoampere)", "NAM (Nanometer)", "NI (Kilonewton)", "NM (Newton/meter)", "NMM (Newton/Square millimeter)", "NS (Nanosecond)", "OCM (Spec. Elec. Resistance)", "OM (Spec. Elec. Resistance)", "OZ (Ounce)", "P (Points)", "PAA (Pair)", "PAC (Pack)", "PAL (Pallet)", "PAS (Pascal second)", "PL (PAIL)", "PMI (1/minute)", "PMR (Permeation Rate SI)", "PPB (Parts per billion)", "PPM (Parts per million)", "PPT (Parts per trillion)", "PRC (Group proportion)", "PRM (Permeation Rate)", "PRS (Number of Persons)", "PS (Picosecond)", "PT (Pint, US liquid)", "QML (Kilomol)", "QT (Quart, US liquid)", "R-U (Nanofarad)", "RF (Millifarad)", "RHO (Gram/cubic centimeter)", "RIM (rim)", "ROL (Role)", "S/M (Siemens per meter)", "SET (set)", "SH (SHEET)", "ST (items)", "TO (Tonne)", "TOM (Ton/Cubic meter)", "TON (USton)", "TS (Thousands)", "TUB ()", "VAL (Value-only material)", "VAM (Voltampere)", "WK (Weeks)", "WKY (Evaporation Rate)", "WMK (Heat Conductivity)", "YD (Yards)", "YD2 (Square Yard)", "YD3 (Cubic yard)", "YR (Years)", "μA (Microampere)", "μF (Microfarad)", "μGL (Microgram/liter)", "μGQ (Microgram/cubic meter)", "μL (Microliter)", "μM (Micrometer)", "Others"})
         Me.comboBoxUM.Location = New System.Drawing.Point(189, 147)
         Me.comboBoxUM.Name = "comboBoxUM"
-        Me.comboBoxUM.Size = New System.Drawing.Size(95, 28)
+        Me.comboBoxUM.Size = New System.Drawing.Size(395, 28)
         Me.comboBoxUM.TabIndex = 19
+        Me.comboBoxUM.Text = "Choose One"
         '
         'Label7
         '
@@ -339,8 +351,11 @@ Partial Class addItemMaterial
         '
         Me.comboBoxMaterialType.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.comboBoxMaterialType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.comboBoxMaterialType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.comboBoxMaterialType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.comboBoxMaterialType.FormattingEnabled = True
+        Me.comboBoxMaterialType.Items.AddRange(New Object() {"Common Material", "Office Assets ", "Facility Assets ", "Consumable", "Fastener", "Filter", "Fluid / Chemical", "General Spare Parts", "Main Spare Parts", "Tools", "Others"})
         Me.comboBoxMaterialType.Location = New System.Drawing.Point(189, 182)
         Me.comboBoxMaterialType.Name = "comboBoxMaterialType"
         Me.comboBoxMaterialType.Size = New System.Drawing.Size(395, 28)
@@ -647,7 +662,7 @@ Partial Class addItemMaterial
         Me.GroupBox2.Controls.Add(Me.comboBoxMaterialType)
         Me.GroupBox2.Location = New System.Drawing.Point(0, 106)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(606, 645)
+        Me.GroupBox2.Size = New System.Drawing.Size(606, 631)
         Me.GroupBox2.TabIndex = 36
         Me.GroupBox2.TabStop = False
         '
@@ -669,7 +684,7 @@ Partial Class addItemMaterial
         Me.daraGridViewAlernative.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20})
         Me.daraGridViewAlernative.Location = New System.Drawing.Point(11, 27)
         Me.daraGridViewAlernative.Name = "daraGridViewAlernative"
-        Me.daraGridViewAlernative.Size = New System.Drawing.Size(656, 428)
+        Me.daraGridViewAlernative.Size = New System.Drawing.Size(656, 414)
         Me.daraGridViewAlernative.TabIndex = 37
         '
         'DataGridViewTextBoxColumn11
@@ -768,7 +783,7 @@ Partial Class addItemMaterial
         Me.groupBoxAlternatif.Controls.Add(Me.buttonEditAlternatif)
         Me.groupBoxAlternatif.Location = New System.Drawing.Point(605, 247)
         Me.groupBoxAlternatif.Name = "groupBoxAlternatif"
-        Me.groupBoxAlternatif.Size = New System.Drawing.Size(679, 504)
+        Me.groupBoxAlternatif.Size = New System.Drawing.Size(679, 490)
         Me.groupBoxAlternatif.TabIndex = 39
         Me.groupBoxAlternatif.TabStop = False
         Me.groupBoxAlternatif.Text = "Alternative"
@@ -869,4 +884,5 @@ Partial Class addItemMaterial
     Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn19 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn20 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents HistoryToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

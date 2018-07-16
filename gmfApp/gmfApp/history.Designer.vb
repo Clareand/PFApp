@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class landingPageMaterial
+Partial Class history
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,15 +25,10 @@ Partial Class landingPageMaterial
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(landingPageMaterial))
-        Me.toolStripStatus = New System.Windows.Forms.ToolStripMenuItem()
-        Me.toolStripAddItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MaterialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.toolStripLogOut = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.buttonExport = New System.Windows.Forms.Button()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(history))
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.dataFindResult = New System.Windows.Forms.DataGridView()
+        Me.Datee = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UniqueCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PartNumber = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -44,76 +39,29 @@ Partial Class landingPageMaterial
         Me.Equipment = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Location = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Remark = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.buttonSearch = New System.Windows.Forms.Button()
-        Me.searchStatusItem = New System.Windows.Forms.TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.buttonExport = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.StatusCheckToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddMaterialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EquipmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MenuStrip1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.dataFindResult, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'toolStripStatus
+        'Label1
         '
-        Me.toolStripStatus.Name = "toolStripStatus"
-        Me.toolStripStatus.Size = New System.Drawing.Size(87, 20)
-        Me.toolStripStatus.Text = "Status Check"
-        '
-        'toolStripAddItem
-        '
-        Me.toolStripAddItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaterialToolStripMenuItem, Me.EquipmentToolStripMenuItem})
-        Me.toolStripAddItem.Name = "toolStripAddItem"
-        Me.toolStripAddItem.Size = New System.Drawing.Size(43, 20)
-        Me.toolStripAddItem.Text = "Item"
-        '
-        'MaterialToolStripMenuItem
-        '
-        Me.MaterialToolStripMenuItem.Name = "MaterialToolStripMenuItem"
-        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.MaterialToolStripMenuItem.Text = "Material"
-        '
-        'toolStripLogOut
-        '
-        Me.toolStripLogOut.Name = "toolStripLogOut"
-        Me.toolStripLogOut.Size = New System.Drawing.Size(62, 20)
-        Me.toolStripLogOut.Text = "Log Out"
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.Lavender
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripStatus, Me.toolStripAddItem, Me.HistoryToolStripMenuItem, Me.toolStripLogOut})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(684, 24)
-        Me.MenuStrip1.TabIndex = 0
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox1.Controls.Add(Me.buttonExport)
-        Me.GroupBox1.Controls.Add(Me.dataFindResult)
-        Me.GroupBox1.Controls.Add(Me.buttonSearch)
-        Me.GroupBox1.Controls.Add(Me.searchStatusItem)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 48)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(660, 465)
-        Me.GroupBox1.TabIndex = 1
-        Me.GroupBox1.TabStop = False
-        '
-        'buttonExport
-        '
-        Me.buttonExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonExport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonExport.Location = New System.Drawing.Point(575, 428)
-        Me.buttonExport.Name = "buttonExport"
-        Me.buttonExport.Size = New System.Drawing.Size(75, 29)
-        Me.buttonExport.TabIndex = 12
-        Me.buttonExport.Text = "Export"
-        Me.buttonExport.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(290, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(65, 20)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "History"
         '
         'dataFindResult
         '
@@ -130,7 +78,7 @@ Partial Class landingPageMaterial
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dataFindResult.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dataFindResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dataFindResult.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.UniqueCode, Me.PartNumber, Me.MaterialDescription, Me.Brand, Me.Stock, Me.UM, Me.Type, Me.Equipment, Me.Location, Me.Remark})
+        Me.dataFindResult.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Datee, Me.UniqueCode, Me.PartNumber, Me.MaterialDescription, Me.Brand, Me.Stock, Me.UM, Me.Type, Me.Equipment, Me.Location, Me.Remark})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -140,7 +88,7 @@ Partial Class landingPageMaterial
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dataFindResult.DefaultCellStyle = DataGridViewCellStyle2
         Me.dataFindResult.EnableHeadersVisualStyles = False
-        Me.dataFindResult.Location = New System.Drawing.Point(6, 65)
+        Me.dataFindResult.Location = New System.Drawing.Point(6, 58)
         Me.dataFindResult.Name = "dataFindResult"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
@@ -152,7 +100,12 @@ Partial Class landingPageMaterial
         Me.dataFindResult.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dataFindResult.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dataFindResult.Size = New System.Drawing.Size(648, 353)
-        Me.dataFindResult.TabIndex = 11
+        Me.dataFindResult.TabIndex = 12
+        '
+        'Datee
+        '
+        Me.Datee.HeaderText = "Date"
+        Me.Datee.Name = "Datee"
         '
         'UniqueCode
         '
@@ -216,23 +169,51 @@ Partial Class landingPageMaterial
         Me.Remark.HeaderText = "Remark"
         Me.Remark.Name = "Remark"
         '
-        'buttonSearch
+        'Panel1
         '
-        Me.buttonSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonSearch.Location = New System.Drawing.Point(329, 18)
-        Me.buttonSearch.Name = "buttonSearch"
-        Me.buttonSearch.Size = New System.Drawing.Size(75, 29)
-        Me.buttonSearch.TabIndex = 7
-        Me.buttonSearch.Text = "Search"
-        Me.buttonSearch.UseVisualStyleBackColor = True
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.Controls.Add(Me.buttonExport)
+        Me.Panel1.Controls.Add(Me.dataFindResult)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Location = New System.Drawing.Point(12, 57)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(660, 456)
+        Me.Panel1.TabIndex = 13
         '
-        'searchStatusItem
+        'buttonExport
         '
-        Me.searchStatusItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.searchStatusItem.Location = New System.Drawing.Point(6, 19)
-        Me.searchStatusItem.Name = "searchStatusItem"
-        Me.searchStatusItem.Size = New System.Drawing.Size(317, 26)
-        Me.searchStatusItem.TabIndex = 6
+        Me.buttonExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonExport.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonExport.Location = New System.Drawing.Point(579, 417)
+        Me.buttonExport.Name = "buttonExport"
+        Me.buttonExport.Size = New System.Drawing.Size(75, 29)
+        Me.buttonExport.TabIndex = 13
+        Me.buttonExport.Text = "Export"
+        Me.buttonExport.UseVisualStyleBackColor = True
+        '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StatusCheckToolStripMenuItem, Me.ItemToolStripMenuItem, Me.HistoryToolStripMenuItem, Me.LogOutToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(684, 24)
+        Me.MenuStrip1.TabIndex = 14
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'StatusCheckToolStripMenuItem
+        '
+        Me.StatusCheckToolStripMenuItem.Name = "StatusCheckToolStripMenuItem"
+        Me.StatusCheckToolStripMenuItem.Size = New System.Drawing.Size(87, 20)
+        Me.StatusCheckToolStripMenuItem.Text = "Status Check"
+        '
+        'ItemToolStripMenuItem
+        '
+        Me.ItemToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddMaterialToolStripMenuItem, Me.EquipmentToolStripMenuItem})
+        Me.ItemToolStripMenuItem.Name = "ItemToolStripMenuItem"
+        Me.ItemToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
+        Me.ItemToolStripMenuItem.Text = "Item"
         '
         'HistoryToolStripMenuItem
         '
@@ -240,43 +221,48 @@ Partial Class landingPageMaterial
         Me.HistoryToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
         Me.HistoryToolStripMenuItem.Text = "History"
         '
+        'LogOutToolStripMenuItem
+        '
+        Me.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem"
+        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.LogOutToolStripMenuItem.Text = "Log Out"
+        '
+        'AddMaterialToolStripMenuItem
+        '
+        Me.AddMaterialToolStripMenuItem.Name = "AddMaterialToolStripMenuItem"
+        Me.AddMaterialToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AddMaterialToolStripMenuItem.Text = "Material"
+        '
         'EquipmentToolStripMenuItem
         '
         Me.EquipmentToolStripMenuItem.Name = "EquipmentToolStripMenuItem"
         Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EquipmentToolStripMenuItem.Text = "Equipment"
         '
-        'landingPageMaterial
+        'history
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(684, 525)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Name = "landingPageMaterial"
-        Me.Text = "GMF"
+        Me.Name = "history"
+        Me.Text = "History"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        CType(Me.dataFindResult, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        CType(Me.dataFindResult, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents toolStripStatus As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents toolStripAddItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents toolStripLogOut As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents buttonSearch As System.Windows.Forms.Button
-    Friend WithEvents searchStatusItem As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents dataFindResult As System.Windows.Forms.DataGridView
-    Friend WithEvents MaterialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents buttonExport As System.Windows.Forms.Button
+    Friend WithEvents Datee As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents UniqueCode As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PartNumber As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents MaterialDescription As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -287,7 +273,13 @@ Partial Class landingPageMaterial
     Friend WithEvents Equipment As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Location As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Remark As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents buttonExport As System.Windows.Forms.Button
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents StatusCheckToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ItemToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AddMaterialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HistoryToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LogOutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EquipmentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-
 End Class

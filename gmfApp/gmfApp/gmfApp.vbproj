@@ -80,6 +80,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Connection.vb" />
+    <Compile Include="history.Designer.vb">
+      <DependentUpon>history.vb</DependentUpon>
+    </Compile>
+    <Compile Include="history.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="login.Designer.vb">
       <DependentUpon>login.vb</DependentUpon>
     </Compile>
@@ -112,6 +118,9 @@
   <ItemGroup>
     <EmbeddedResource Include="addItemMaterial.resx">
       <DependentUpon>addItemMaterial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="history.resx">
+      <DependentUpon>history.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="landingPageMaterial.resx">
       <DependentUpon>landingPageMaterial.vb</DependentUpon>
