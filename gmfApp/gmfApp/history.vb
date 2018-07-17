@@ -1,4 +1,5 @@
-﻿Public Class history
+﻿Imports MySql.Data.MySqlClient
+Public Class history
 
     Private Sub StatusCheckToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles StatusCheckToolStripMenuItem.Click
         landingPageMaterial.Show()

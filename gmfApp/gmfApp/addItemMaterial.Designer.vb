@@ -68,28 +68,8 @@ Partial Class addItemMaterial
         Me.Button1 = New System.Windows.Forms.Button()
         Me.buttonEditMaterial = New System.Windows.Forms.Button()
         Me.dataGridViewMaterial = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.daraGridViewAlernative = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dataGridViewAlernatif = New System.Windows.Forms.DataGridView()
         Me.groupBoxMaterial = New System.Windows.Forms.GroupBox()
         Me.groupBoxAlternatif = New System.Windows.Forms.GroupBox()
         Me.MenuStrip1.SuspendLayout()
@@ -97,7 +77,7 @@ Partial Class addItemMaterial
         CType(Me.dataGridViewEquipment, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dataGridViewMaterial, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.daraGridViewAlernative, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dataGridViewAlernatif, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.groupBoxMaterial.SuspendLayout()
         Me.groupBoxAlternatif.SuspendLayout()
         Me.SuspendLayout()
@@ -128,13 +108,13 @@ Partial Class addItemMaterial
         'MaterialToolStripMenuItem
         '
         Me.MaterialToolStripMenuItem.Name = "MaterialToolStripMenuItem"
-        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.MaterialToolStripMenuItem.Text = "Material"
         '
         'EquipmentToolStripMenuItem
         '
         Me.EquipmentToolStripMenuItem.Name = "EquipmentToolStripMenuItem"
-        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.EquipmentToolStripMenuItem.Text = "Equipment"
         '
         'HistoryToolStripMenuItem
@@ -267,7 +247,7 @@ Partial Class addItemMaterial
         Me.comboBoxUM.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.comboBoxUM.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.comboBoxUM.DisplayMember = """ (Inch)"
-        Me.comboBoxUM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.comboBoxUM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.comboBoxUM.FormattingEnabled = True
         Me.comboBoxUM.Items.AddRange(New Object() {""" (Inch)", """2 (Square inch)", """3 (Cubic inch)", "% (Percentage)", "%O (Permile)", "000 (Meter/Minute)", "ACR (Acre)", "AU (Activity unit)", "BAG (Bag)", "BLD (Brake Landings)", "BOX (BOX)", "BT (Bottle)", "C3S (Cubic centimeter/second)", "CAN (Canister)", "CAR (Carton)", "CCM (Cubic centimeter)", "CD3 (Cubic decimeter)", "CL (Centiliter)", "CM (Centimeter)", "CM2 (Square centimeter)", "CMS (Centimeter/second)", "CRT (Crate)", "CV (Case)", "CYC (CYCLES)", "D (Days)", "DAY (Days)", "DB (Decibel)", "DEG (Degree)", "DM (Decimeter)", "DR (Drum)", "DZ (Dozen)", "CM2 (Square centimeter)", "CMS (Centimeter/second)", "CRT (Crate)", "CV (Case)", "CYC (CYCLES)", "EA (each)", "EML (Enzyme Units/Milliliter)", "EU (Enzyme Units)", "FOZ (Fluid Ounce US)", "FT (Foot)", "FT2 (Square foot)", "FT3 (Cubic foot)", "G (Gram)", "G/L (gram act.ingrd/liter)", "GAI (Gram act.ingrd.)", "GAL (US gallon)", "GAU (Gram Gold)", "GJ (Gigajoule)", "GLI (Gram/liter)", "GM (Gram/Mol)", "GM2 (Gram/square meter)", "GM3 (Gram/Cubic meter)", "GOH (Gigaohm)", "GPH (Gallons per hour {US})", "GPM (Gallons per mile {US})", "GRO (Gross)", "H (Hour)", "HA (Hectare)", "HL (Hectoliter)", "HR (Hours)", "HRS (Hours)", "IB (Pikofarad)", "JKG (Joule/Kilogram)", "JKK (Spec. Heat Capacity)", "JMO (Joule/Mol)", "KAI (Kilogram act.ingrd.)", "KD3 (Kilogram/cubic decimeter)", "KG (Kilogram)", "KGM (Kilogram/Mol)", "KGS (Kilogram/second)", "KGV (Kilogram/cubic meter)", "KIK (kg act.ingrd./kg)", "KIT (KIT)", "KJK (Kilojoule/kilogram)", "KJM (Kilojoule/Mol)", "KM (Kilometer)", "KM2 (Square kilometer)", "KMH (Kilometer/hour)", "KMN (Kelvin/Minute)", "KMS (Kelvin/Second)", "KPA (Kilopascal)", "KT (Kilotonne)", "KVA (Kilovoltampere)", "L (Liter)", "LB (US pound)", "LDG (LANDINGS)", "LHK (Liter per 100 km)", "LMI (Liter/Minute)", "LMS (Liter/Molsecond)", "LOT (lot)", "LPH (Liter per hour)", "M (Meter)", "M-2 (1/square meter)", "M/H (Meter/Hour)", "M/L (Mol per liter)", "M/M (Mol per cubic meter)", "M/S (Meter/second)", "M2 (Square meter)", "M2S (Square meter/second)", "M3 (Cubic meter)", "M3H (Cubic meter/Hour)", "M3S (Cubic meter/second)", "MEJ (Megajoule)", "MG (Milligram)", "MGL (Milligram/liter)", "MGO (Megohm)", "MGQ (Milligram/cubic meter)", "MHV (Megavolt)", "MI (Mile)", "MI2 (Square mile)", "MIN (Minute)", "MIS (Microsecond)", "ML (Milliliter)", "MLI (Milliliter act.ingr.)", "MM (Millimeter)", "MM2 (Square millimeter)", "MM3 (Cubic millimeter)", "MN (Meganewton)", "MNM (Milli newton/meter)", "MON (Months)", "MPG (Miles per gallon {US})", "MPL (Millimol per liter)", "MPS (Millipascal seconds)", "MS2 (Meter/second squared)", "MSC (Microsiemens per centim)", "MSE (Millisecond)", "MVA (Megavoltampere)", "MWH (Megawatt hour)", "NA (Nanoampere)", "NAM (Nanometer)", "NI (Kilonewton)", "NM (Newton/meter)", "NMM (Newton/Square millimeter)", "NS (Nanosecond)", "OCM (Spec. Elec. Resistance)", "OM (Spec. Elec. Resistance)", "OZ (Ounce)", "P (Points)", "PAA (Pair)", "PAC (Pack)", "PAL (Pallet)", "PAS (Pascal second)", "PL (PAIL)", "PMI (1/minute)", "PMR (Permeation Rate SI)", "PPB (Parts per billion)", "PPM (Parts per million)", "PPT (Parts per trillion)", "PRC (Group proportion)", "PRM (Permeation Rate)", "PRS (Number of Persons)", "PS (Picosecond)", "PT (Pint, US liquid)", "QML (Kilomol)", "QT (Quart, US liquid)", "R-U (Nanofarad)", "RF (Millifarad)", "RHO (Gram/cubic centimeter)", "RIM (rim)", "ROL (Role)", "S/M (Siemens per meter)", "SET (set)", "SH (SHEET)", "ST (items)", "TO (Tonne)", "TOM (Ton/Cubic meter)", "TON (USton)", "TS (Thousands)", "TUB ()", "VAL (Value-only material)", "VAM (Voltampere)", "WK (Weeks)", "WKY (Evaporation Rate)", "WMK (Heat Conductivity)", "YD (Yards)", "YD2 (Square Yard)", "YD3 (Cubic yard)", "YR (Years)", "μA (Microampere)", "μF (Microfarad)", "μGL (Microgram/liter)", "μGQ (Microgram/cubic meter)", "μL (Microliter)", "μM (Micrometer)", "Others"})
         Me.comboBoxUM.Location = New System.Drawing.Point(189, 147)
@@ -366,7 +346,9 @@ Partial Class addItemMaterial
         '
         Me.comboBoxEquipment.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.comboBoxEquipment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.comboBoxEquipment.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.comboBoxEquipment.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.comboBoxEquipment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.comboBoxEquipment.FormattingEnabled = True
         Me.comboBoxEquipment.Location = New System.Drawing.Point(189, 218)
         Me.comboBoxEquipment.Name = "comboBoxEquipment"
@@ -486,7 +468,7 @@ Partial Class addItemMaterial
         Me.dataGridViewEquipment.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Equipment})
         Me.dataGridViewEquipment.Location = New System.Drawing.Point(189, 253)
         Me.dataGridViewEquipment.Name = "dataGridViewEquipment"
-        Me.dataGridViewEquipment.Size = New System.Drawing.Size(296, 81)
+        Me.dataGridViewEquipment.Size = New System.Drawing.Size(314, 81)
         Me.dataGridViewEquipment.TabIndex = 26
         '
         'Equipment
@@ -555,82 +537,11 @@ Partial Class addItemMaterial
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dataGridViewMaterial.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dataGridViewMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dataGridViewMaterial.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10})
         Me.dataGridViewMaterial.GridColor = System.Drawing.SystemColors.ControlDarkDark
         Me.dataGridViewMaterial.Location = New System.Drawing.Point(7, 19)
         Me.dataGridViewMaterial.Name = "dataGridViewMaterial"
         Me.dataGridViewMaterial.Size = New System.Drawing.Size(663, 160)
         Me.dataGridViewMaterial.TabIndex = 33
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Unique Code"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Width = 96
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Part Number"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.Width = 94
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Material Description"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.Width = 132
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Brand"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Width = 65
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Stock"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.Width = 65
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewTextBoxColumn6.HeaderText = "UM"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.Width = 51
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Type"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.Width = 60
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewTextBoxColumn8.HeaderText = "EquipmentNeed"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.Width = 121
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Location"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.Width = 81
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Remark"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.Width = 75
         '
         'GroupBox2
         '
@@ -666,12 +577,12 @@ Partial Class addItemMaterial
         Me.GroupBox2.TabIndex = 36
         Me.GroupBox2.TabStop = False
         '
-        'daraGridViewAlernative
+        'dataGridViewAlernatif
         '
-        Me.daraGridViewAlernative.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dataGridViewAlernatif.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.daraGridViewAlernative.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
+        Me.dataGridViewAlernatif.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -679,83 +590,12 @@ Partial Class addItemMaterial
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.daraGridViewAlernative.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.daraGridViewAlernative.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.daraGridViewAlernative.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20})
-        Me.daraGridViewAlernative.Location = New System.Drawing.Point(11, 27)
-        Me.daraGridViewAlernative.Name = "daraGridViewAlernative"
-        Me.daraGridViewAlernative.Size = New System.Drawing.Size(656, 414)
-        Me.daraGridViewAlernative.TabIndex = 37
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Unique Code"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.Width = 96
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn12.HeaderText = "Part Number"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.Width = 94
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn13.HeaderText = "Material Description"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.Width = 132
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn14.HeaderText = "Brand"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.Width = 65
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn15.HeaderText = "Stock"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        Me.DataGridViewTextBoxColumn15.Width = 65
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn16.HeaderText = "UM"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        Me.DataGridViewTextBoxColumn16.Width = 51
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn17.HeaderText = "Type"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        Me.DataGridViewTextBoxColumn17.Width = 60
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn18.HeaderText = "EquipmentNeed"
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        Me.DataGridViewTextBoxColumn18.Width = 121
-        '
-        'DataGridViewTextBoxColumn19
-        '
-        Me.DataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn19.HeaderText = "Location"
-        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
-        Me.DataGridViewTextBoxColumn19.Width = 81
-        '
-        'DataGridViewTextBoxColumn20
-        '
-        Me.DataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.DataGridViewTextBoxColumn20.HeaderText = "Remark"
-        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-        Me.DataGridViewTextBoxColumn20.Width = 75
+        Me.dataGridViewAlernatif.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.dataGridViewAlernatif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dataGridViewAlernatif.Location = New System.Drawing.Point(11, 27)
+        Me.dataGridViewAlernatif.Name = "dataGridViewAlernatif"
+        Me.dataGridViewAlernatif.Size = New System.Drawing.Size(656, 414)
+        Me.dataGridViewAlernatif.TabIndex = 37
         '
         'groupBoxMaterial
         '
@@ -778,7 +618,7 @@ Partial Class addItemMaterial
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.groupBoxAlternatif.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.groupBoxAlternatif.Controls.Add(Me.daraGridViewAlernative)
+        Me.groupBoxAlternatif.Controls.Add(Me.dataGridViewAlernatif)
         Me.groupBoxAlternatif.Controls.Add(Me.buttonDeleteAlternative)
         Me.groupBoxAlternatif.Controls.Add(Me.buttonEditAlternatif)
         Me.groupBoxAlternatif.Location = New System.Drawing.Point(605, 247)
@@ -812,7 +652,7 @@ Partial Class addItemMaterial
         CType(Me.dataGridViewMaterial, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.daraGridViewAlernative, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dataGridViewAlernatif, System.ComponentModel.ISupportInitialize).EndInit()
         Me.groupBoxMaterial.ResumeLayout(False)
         Me.groupBoxAlternatif.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -860,29 +700,9 @@ Partial Class addItemMaterial
     Friend WithEvents buttonEditMaterial As System.Windows.Forms.Button
     Friend WithEvents dataGridViewMaterial As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents daraGridViewAlernative As System.Windows.Forms.DataGridView
+    Friend WithEvents dataGridViewAlernatif As System.Windows.Forms.DataGridView
     Friend WithEvents groupBoxMaterial As System.Windows.Forms.GroupBox
     Friend WithEvents groupBoxAlternatif As System.Windows.Forms.GroupBox
     Friend WithEvents Equipment As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn14 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn15 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn19 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn20 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HistoryToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
