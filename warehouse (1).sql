@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2018 at 05:52 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.2
+-- Generation Time: Jul 17, 2018 at 10:14 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -146,7 +148,9 @@ INSERT INTO `equipment_list` (`id_equipment_list`, `PKid_material`, `PKid_equipm
 (1, 1000001, 1),
 (2, 1000001, 2),
 (3, 1000002, 3),
-(4, 1000002, 4);
+(4, 1000002, 4),
+(5, 1000001, 14),
+(6, 1000002, 13);
 
 -- --------------------------------------------------------
 
@@ -227,31 +231,37 @@ ALTER TABLE `material`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `alternatif`
 --
 ALTER TABLE `alternatif`
   MODIFY `id_alternatif` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10003;
+
 --
 -- AUTO_INCREMENT for table `alternatif_list`
 --
 ALTER TABLE `alternatif_list`
   MODIFY `id_alternatif_list` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `equipment`
 --
 ALTER TABLE `equipment`
-  MODIFY `id_equipment` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_equipment` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
 --
 -- AUTO_INCREMENT for table `equipment_list`
 --
 ALTER TABLE `equipment_list`
-  MODIFY `id_equipment_list` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_equipment_list` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `material`
 --
 ALTER TABLE `material`
   MODIFY `id_material` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000003;
+
 --
 -- Constraints for dumped tables
 --
@@ -269,6 +279,7 @@ ALTER TABLE `alternatif_list`
 ALTER TABLE `equipment_list`
   ADD CONSTRAINT `equToMat` FOREIGN KEY (`PKid_material`) REFERENCES `material` (`id_material`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `equipment_list_ibfk_1` FOREIGN KEY (`PKid_equipment`) REFERENCES `equipment` (`id_equipment`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

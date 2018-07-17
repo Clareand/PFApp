@@ -32,3 +32,4 @@ D:\Clara\Kuliah\Semester 4\KP GMF\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.login
 D:\Clara\Kuliah\Semester 4\KP GMF\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.Resources.resources
 D:\Clara\Kuliah\Semester 4\KP GMF\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.vbproj.GenerateResource.Cache
 D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.history.resources
+D:\Clara\Kuliah\Semester 4\KP GMF\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.history.resources

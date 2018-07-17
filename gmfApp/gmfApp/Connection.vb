@@ -2,9 +2,9 @@
 
 Module Connection
     Public Conn As MySqlConnection
-    Public RD As MySqlDataReader
+    Public RD, RD2 As MySqlDataReader
     Public DA As MySqlDataAdapter
-    Public CMD As MySqlCommand
+    Public CMD, CX As MySqlCommand
     Public DS As DataSet
     Public simpan, ubah, hapus As String
 
