@@ -3,11 +3,14 @@
 Public Class addItemMaterial
 
     Dim ucode As Integer
+    Dim pncode As String
     Dim equip_id As Integer
 
     Private Sub addItemMaterial_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call bukaDB()
         tampilComboEquipmentList()
+        Call clear()
+
         'tampilDataMaterial()
         'tampilDataAlternatif()
 
@@ -16,10 +19,44 @@ Public Class addItemMaterial
         End If
     End Sub
 
-    'Tambah Equipment ke database 
-    Sub addEquipment()
-        ucode = CInt(tbUniqueCode.Text)
+    Sub clear()
+        Call initUcode()
+        tbUniqueCode.Text = ""
+        tbPartNumber.Text = ""
+        tbMaterialDesc.Text = ""
+        tbBrand.Text = ""
+        tbStock.Text = ""
+        comboBoxUM.SelectedItem = ""
+        comboBoxMaterialType.SelectedItem = ""
+        comboBoxEquipment.SelectedItem = ""
+        tbLocation.Text = ""
+        tbRemarksMaterial.Text = ""
+        dataGridViewEquipment.DataSource = Nothing
+        dataGridViewAlernatif.DataSource = Nothing
+        dataGridViewMaterial.DataSource = Nothing
+      
+    End Sub
 
+    'Tambah Equipment ke database 
+    Sub initUcode()
+        If tbUniqueCode.Text <> "" And tbPartNumber.Text = "" Then
+            ucode = CInt(tbUniqueCode.Text)
+
+        ElseIf tbPartNumber.Text <> "" And tbUniqueCode.Text = "" Then
+            pncode = tbPartNumber.Text
+            MsgBox(pncode)
+            bukaDB()
+            CX = New MySqlCommand("SELECT id_material FROM material WHERE mat_part_number='" & pncode & "'", Conn)
+            RD2 = CX.ExecuteReader
+            RD2.Read()
+            ucode = RD2.Item("id_material")
+            tbUniqueCode.Text = ucode
+            MsgBox(ucode)
+        End If
+    End Sub
+
+
+    Sub addEquipment()
         bukaDB()
         CX = New MySqlCommand("select id_equipment from equipment where equipment_name='" & comboBoxEquipment.SelectedItem & "'", Conn)
         RD2 = CX.ExecuteReader
@@ -47,12 +84,13 @@ Public Class addItemMaterial
                 End With
             End If
         Catch ex As Exception
-            MsgBox("Failed")
+            MsgBox("Failed Add Equipment")
         End Try
     End Sub
 
-    'Mencari Material melalui id_material alias Code Unique yang akan tampil di Data Grid View Material
+    'Mencari Material melalui ID_MATERIAL alias Code Unique yang akan tampil di dataGridViewMaterial
     Sub findMaterial(ByVal ucode As Integer)
+
         Try
             DA = New MySqlDataAdapter("SELECT id_material 'Unique Code', mat_part_number 'Part Number', mat_desc 'Description', mat_brand 'Brand', mat_stock 'Stock', mat_um 'UM', mat_type 'Type', equipment_name 'Equipment', mat_location 'Location', mat_remark 'Remark' FROM material INNER JOIN equipment ON material.id_material='" & ucode & "'" & "WHERE equipment.id_equipment  IN (SELECT equipment_list.PKid_equipment FROM equipment_list WHERE PKid_material IN (SELECT material.id_material FROM material WHERE material.id_material='" & ucode & "'))", Conn)
             DS = New DataSet
@@ -60,12 +98,14 @@ Public Class addItemMaterial
             dataGridViewMaterial.DataSource = DS.Tables("material, equipment, equipment_list")
             dataGridViewMaterial.ReadOnly = True
         Catch ex As Exception
-            MsgBox("Failed")
+            MsgBox("Failed Find Material")
         End Try
+
     End Sub
 
-    'Mencari Material melalui id_material alias Code Unique yang akan tampil di Data Grid View Alternatif
+    'Mencari Material melalui ID_MATERIAL alias Code Unique yang akan tampil di dataGridViewAlternatif
     Sub findAlternatif(ByVal ucode As Integer)
+
         Try
             DA = New MySqlDataAdapter("SELECT id_material 'Unique Code', alt_part_number 'Part Number', alt_brand 'Brand', alt_stock 'Stock', alt_um 'UM', alt_type 'Type', equipment_name 'Equipment', alt_location 'Location', alt_remark 'Remark' FROM material INNER JOIN equipment_list ON material.id_material='" & ucode & "' INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material='" & ucode & "' INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif ORDER BY alt_part_number ASC", Conn)
             DS = New DataSet
@@ -73,9 +113,10 @@ Public Class addItemMaterial
             dataGridViewAlernatif.DataSource = DS.Tables("material, equipment, equipment_list, alternatif, alternatif_list")
             dataGridViewAlernatif.ReadOnly = True
         Catch ex As Exception
-            MsgBox("Failed")
+            MsgBox("Failed Find Alternatif")
         End Try
     End Sub
+
 
     'Menampilkan list dari Equipment yg ada di database ke comboBoxEquipment
     Private Sub tampilComboEquipmentList()
@@ -91,13 +132,14 @@ Public Class addItemMaterial
             End If
             RD.Close()
         Catch ex As Exception
-            MsgBox("Failed")
+            MsgBox("Failed Tampil Combo Equip")
         End Try
 
     End Sub
 
     'Menampilkan data Material di DataGridViewMaterial dari database
     Private Sub tampilDataMaterial()
+        Call initUcode()
         Try
             DA = New MySqlDataAdapter("SELECT id_material 'Unique Code', mat_part_number 'Part Number', mat_desc 'Description', mat_brand 'Brand', mat_stock 'Stock', mat_um 'UM', mat_type 'Type', equipment_name 'Equipment', mat_location 'Location', mat_remark 'Remark' FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment", Conn)
             DS = New DataSet
@@ -105,7 +147,7 @@ Public Class addItemMaterial
             dataGridViewMaterial.DataSource = DS.Tables("material, equipment, equipment_list")
             dataGridViewMaterial.ReadOnly = True
         Catch ex As Exception
-            MsgBox("Failed")
+            MsgBox("Failed Tampil Data Material")
         End Try
     End Sub
 
@@ -118,10 +160,24 @@ Public Class addItemMaterial
             dataGridViewAlernatif.DataSource = DS.Tables("material, equipment, equipment_list, alternatif, alternatif_list")
             dataGridViewAlernatif.ReadOnly = True
         Catch ex As Exception
-            MsgBox("Failed")
+            MsgBox("Failed Tampil Data Alternatif")
         End Try
     End Sub
 
+    'Memanggil Equipment yang di Add di Material
+    Private Sub tampilDataEquipment(ByVal ucode As Integer)
+        Try
+            DA = New MySqlDataAdapter("SELECT equipment_name 'Equipment' FROM equipment INNER JOIN equipment_list ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN material ON material.id_material=equipment_list.PKid_material WHERE id_material='" & ucode & "'", Conn)
+            DS = New DataSet
+            DA.Fill(DS, "material, equipment, equipment_list")
+            dataGridViewEquipment.DataSource = DS.Tables("material, equipment, equipment_list")
+            dataGridViewEquipment.ReadOnly = True
+
+        Catch ex As Exception
+            MsgBox("Failed Tampil Data Eq")
+        End Try
+
+    End Sub
     'Tombol Keluar
     Private Sub toolStripLogOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles toolStripLogOut.Click
         Me.Close()
@@ -132,6 +188,7 @@ Public Class addItemMaterial
     Private Sub toolStripStatus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles toolStripStatus.Click
         landingPageMaterial.Show()
         Me.Visible = False
+        Call clear()
     End Sub
 
     'Menuju page History
@@ -142,14 +199,28 @@ Public Class addItemMaterial
 
     'Button Find untuk menampilkan data dari Material, Equipment dan Alternatif ke tabel
     Private Sub buttonUniqueCode_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonUniqueCode.Click
-        ucode = CInt(tbUniqueCode.Text)
+
         MsgBox(ucode)
+
+        Call initUcode()
         Call findMaterial(ucode)
         Call findAlternatif(ucode)
+        Call tampilDataEquipment(ucode)
     End Sub
 
     'Button menambahkan equipment menggunakan sub addEquipment
     Private Sub buttonAddEquipment_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonAddEquipment.Click
         Call addEquipment()
+        Call tampilDataEquipment(ucode)
+        Call findMaterial(ucode)
+        Call findAlternatif(ucode)
+    End Sub
+    
+    Private Sub buttonSearchPN_Click(sender As System.Object, e As System.EventArgs) Handles buttonSearchPN.Click
+
+        Call initUcode()
+        Call findMaterial(ucode)
+        Call findAlternatif(ucode)
+        Call tampilDataEquipment(ucode)
     End Sub
 End Class
