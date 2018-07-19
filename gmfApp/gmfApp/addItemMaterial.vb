@@ -5,6 +5,8 @@ Public Class addItemMaterial
     Dim ucode As Integer
     Dim pncode As String
     Dim equip_id As Integer
+    Dim var As Integer
+    Dim xcode As Integer
 
     Private Sub addItemMaterial_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call bukaDB()
@@ -17,6 +19,11 @@ Public Class addItemMaterial
         If (landingPageMaterial.WindowState = FormWindowState.Maximized) Then
             Me.WindowState = FormWindowState.Maximized
         End If
+    End Sub
+
+    Sub clearPNUCode()
+        ucode = 0
+        pncode = ""
     End Sub
 
     Sub clear()
@@ -44,7 +51,9 @@ Public Class addItemMaterial
 
         ElseIf tbUniqueCode.Text = "" And tbPartNumber.Text <> "" Then
             bukaDB()
-            Call initPN()
+            If tbMaterialDesc.Text = "" Then
+                Call initPN()
+            End If
             MsgBox(ucode)
         ElseIf tbUniqueCode.Text <> "" And tbPartNumber.Text <> "" Then
             If tbUniqueCode.Text = ucode Then
@@ -72,19 +81,23 @@ Public Class addItemMaterial
 
 
     Sub addOrEdit()
+
         Try
-            Dim var As Integer = 1
             bukaDB()
             CMD = New MySqlCommand("select id_material from material where id_material = '" & ucode & "'", Conn)
             RD = CMD.ExecuteReader
-            RD.Read()
-            If RD.HasRows Then
-                Call addAlt()
-            End If
+            xcode = RD.Item("id_material")
             RD.Close()
         Catch ex As Exception
             MsgBox("Unique Code not found")
         End Try
+
+        If xcode = ucode Then
+            Call addMaterial()
+        Else
+            Call addAlt()
+        End If
+
 
     End Sub
 
@@ -145,11 +158,24 @@ Public Class addItemMaterial
                 .Parameters.Add("M7", MySqlDbType.String).Value = tbLocation.Text
                 .Parameters.Add("M8", MySqlDbType.String).Value = tbRemarksMaterial.Text
                 .ExecuteNonQuery()
-                MsgBox("Yes")
+                MsgBox("success Add Material")
             End With
             RD.Close()
         Catch ex As Exception
             MsgBox("Failed Add Material")
+        End Try
+
+        Try
+            pncode = tbPartNumber.Text
+            bukaDB()
+            CX = New MySqlCommand("select id_material from material where mat_part_number = '" & pncode & "'", Conn)
+            RD2 = CMD.ExecuteReader
+            ucode = RD2.Item("id_material")
+            RD2.Close()
+
+            MsgBox(ucode)
+        Catch ex As Exception
+            MsgBox("Failed initiate Ucode")
         End Try
 
     End Sub
@@ -174,11 +200,11 @@ Public Class addItemMaterial
                 .Parameters.Add("A6", MySqlDbType.String).Value = tbLocation.Text
                 .Parameters.Add("A7", MySqlDbType.String).Value = tbRemarksMaterial.Text
                 .ExecuteNonQuery()
-                MsgBox("Yes")
+                MsgBox("success Add Alt")
             End With
             RD.Close()
         Catch ex As Exception
-            MsgBox("Failed Add Equipment")
+            MsgBox("Failed Add Alt")
         End Try
 
     End Sub
@@ -288,6 +314,7 @@ Public Class addItemMaterial
         Call findMaterial(ucode)
         Call findAlternatif(ucode)
         Call tampilDataEquipment(ucode)
+        Call clearPNUCode()
     End Sub
 
     'Button menambahkan equipment menggunakan sub addEquipment
@@ -301,6 +328,14 @@ Public Class addItemMaterial
     Private Sub buttonSearchPN_Click(sender As System.Object, e As System.EventArgs) Handles buttonSearchPN.Click
 
         Call initUcode()
+        Call findMaterial(ucode)
+        Call findAlternatif(ucode)
+        Call tampilDataEquipment(ucode)
+    End Sub
+
+    Private Sub buttonSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonSave.Click
+        Call initUcode()
+        Call addOrEdit()
         Call findMaterial(ucode)
         Call findAlternatif(ucode)
         Call tampilDataEquipment(ucode)
