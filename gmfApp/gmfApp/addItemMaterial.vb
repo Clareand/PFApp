@@ -7,6 +7,7 @@ Public Class addItemMaterial
     Dim equip_id As Integer
     Dim var As Integer
     Dim xcode As Integer
+    Dim pxcode As String
 
     Private Sub addItemMaterial_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call bukaDB()
@@ -19,11 +20,6 @@ Public Class addItemMaterial
         If (landingPageMaterial.WindowState = FormWindowState.Maximized) Then
             Me.WindowState = FormWindowState.Maximized
         End If
-    End Sub
-
-    Sub clearPNUCode()
-        ucode = 0
-        pncode = ""
     End Sub
 
     Sub clear()
@@ -50,11 +46,8 @@ Public Class addItemMaterial
             ucode = CInt(tbUniqueCode.Text)
 
         ElseIf tbUniqueCode.Text = "" And tbPartNumber.Text <> "" Then
-            bukaDB()
-            If tbMaterialDesc.Text = "" Then
-                Call initPN()
-            End If
-            MsgBox(ucode)
+            Call initPN()
+            MsgBox("Init Ucode, Ucode :" & ucode)
         ElseIf tbUniqueCode.Text <> "" And tbPartNumber.Text <> "" Then
             If tbUniqueCode.Text = ucode Then
                 tbUniqueCode.Text = ""
@@ -70,39 +63,45 @@ Public Class addItemMaterial
 
     Sub initPN()
         pncode = tbPartNumber.Text
-        MsgBox(pncode)
+        MsgBox("InitPN, pncode : " & pncode)
         CX = New MySqlCommand("SELECT id_material FROM material WHERE mat_part_number='" & pncode & "'", Conn)
         RD2 = CX.ExecuteReader
         RD2.Read()
-        ucode = RD2.Item("id_material")
+        If RD2.HasRows Then
+            ucode = RD2.Item("id_material")
+        End If
         RD2.Close()
         tbUniqueCode.Text = ucode
     End Sub
 
-
     Sub addOrEdit()
-
+        pncode = tbPartNumber.Text
+        MsgBox("addOrEdit, pncode: " & pncode)
         Try
             bukaDB()
-            CMD = New MySqlCommand("select id_material from material where id_material = '" & ucode & "'", Conn)
+            CMD = New MySqlCommand("select id_material from material where mat_part_number = '" & pncode & "'", Conn)
             RD = CMD.ExecuteReader
             xcode = RD.Item("id_material")
             RD.Close()
         Catch ex As Exception
             MsgBox("Unique Code not found")
         End Try
+        MsgBox(" addOrEdit,Xcode = " & xcode)
 
-        If xcode = ucode Then
-            Call addMaterial()
-        Else
-            Call addAlt()
+        If tbPartNumber.Text = "" Then
+            If xcode = 0 Then
+                Call addMaterial()
+            End If
+        ElseIf tbPartNumber.Text <> "" Then
+            If ucode = 0 Then
+                Call addMaterial()
+            Else
+                Call addAlt()
+            End If
         End If
 
 
     End Sub
-
-
-
 
     Sub addEquipment()
         bukaDB()
@@ -111,8 +110,8 @@ Public Class addItemMaterial
         RD2.Read()
         equip_id = RD2.Item("id_equipment")
         RD2.Close()
-        MsgBox(ucode)
-        MsgBox(equip_id)
+        MsgBox("AddEquipment, Ucode :" & ucode)
+        MsgBox("AddEquipment, Equip_id: " & equip_id)
 
         Try
             bukaDB()
@@ -129,7 +128,7 @@ Public Class addItemMaterial
                     .Parameters.Add("R1", MySqlDbType.Int16).Value = ucode
                     .Parameters.Add("R2", MySqlDbType.Int16).Value = equip_id
                     .ExecuteNonQuery()
-                    MsgBox("Yes")
+                    MsgBox("Succes addEquipment")
                 End With
             End If
             RD.Close()
@@ -163,19 +162,6 @@ Public Class addItemMaterial
             RD.Close()
         Catch ex As Exception
             MsgBox("Failed Add Material")
-        End Try
-
-        Try
-            pncode = tbPartNumber.Text
-            bukaDB()
-            CX = New MySqlCommand("select id_material from material where mat_part_number = '" & pncode & "'", Conn)
-            RD2 = CMD.ExecuteReader
-            ucode = RD2.Item("id_material")
-            RD2.Close()
-
-            MsgBox(ucode)
-        Catch ex As Exception
-            MsgBox("Failed initiate Ucode")
         End Try
 
     End Sub
@@ -226,7 +212,7 @@ Public Class addItemMaterial
     Sub findMaterial(ByVal ucode As Integer)
 
         Try
-            DA = New MySqlDataAdapter("SELECT DISTINCT id_material 'Unique Code', mat_part_number 'Part Number', mat_desc 'Description', mat_brand 'Brand', mat_stock 'Stock', mat_um 'UM', mat_type 'Type', mat_location 'Location', mat_remark 'Remark' FROM material INNER JOIN equipment ON material.id_material='" & ucode & "'" & "WHERE equipment.id_equipment  IN (SELECT equipment_list.PKid_equipment FROM equipment_list WHERE PKid_material IN (SELECT material.id_material FROM material WHERE material.id_material='" & ucode & "'))", Conn)
+            DA = New MySqlDataAdapter("SELECT DISTINCT id_material 'Unique Code', mat_part_number 'Part Number', mat_desc 'Description', mat_brand 'Brand', mat_stock 'Stock', mat_um 'UM', mat_type 'Type', mat_location 'Location', mat_remark 'Remark' FROM material where id_material ='" & ucode & "'", Conn)
             DS = New DataSet
             DA.Fill(DS, "material, equipment, equipment_list")
             dataGridViewMaterial.DataSource = DS.Tables("material, equipment, equipment_list")
@@ -307,14 +293,11 @@ Public Class addItemMaterial
 
     'Button Find untuk menampilkan data dari Material, Equipment dan Alternatif ke tabel
     Private Sub buttonUniqueCode_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonUniqueCode.Click
-
-        MsgBox(ucode)
-
         Call initUcode()
+        MsgBox("ButtonFind, Ucode: " & ucode)
         Call findMaterial(ucode)
         Call findAlternatif(ucode)
         Call tampilDataEquipment(ucode)
-        Call clearPNUCode()
     End Sub
 
     'Button menambahkan equipment menggunakan sub addEquipment
@@ -333,11 +316,11 @@ Public Class addItemMaterial
         Call tampilDataEquipment(ucode)
     End Sub
 
+
     Private Sub buttonSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonSave.Click
         Call initUcode()
         Call addOrEdit()
+        Call initUcode()
         Call findMaterial(ucode)
-        Call findAlternatif(ucode)
-        Call tampilDataEquipment(ucode)
     End Sub
 End Class
