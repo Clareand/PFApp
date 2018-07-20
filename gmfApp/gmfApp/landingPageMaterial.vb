@@ -3,6 +3,7 @@
 Public Class landingPageMaterial
 
     Private Sub LandingPage_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.dataFindResult.DefaultCellStyle.WrapMode = DataGridViewTriState.True
         If (addItemMaterial.WindowState = FormWindowState.Maximized) Then
             Me.WindowState = FormWindowState.Maximized
             Call bukaDB()
@@ -55,5 +56,38 @@ Public Class landingPageMaterial
     End Sub
 
     
+    
+    Private Sub buttonExport_Click(sender As System.Object, e As System.EventArgs) Handles buttonExport.Click
+        Call export()
+    End Sub
+
+    Sub export()
+        Dim ExcelApp As Object, ExcelBook As Object
+        Dim ExcelSheet As Object
+        Dim i As Integer
+        Dim j As Integer
+        ExcelApp = CreateObject("Excel.Application")
+        ExcelBook = ExcelApp.WorkBooks.Add
+        ExcelSheet = ExcelBook.WorkSheets(1)
+
+        With ExcelSheet
+            For Each column As DataGridViewColumn In dataFindResult.Columns
+                .cells(1, column.Index + 1) = column.HeaderText
+            Next
+            For i = 1 To Me.dataFindResult.RowCount
+                .cells(i + 1, 1) = Me.dataFindResult.Rows(i - 1).Cells("id_material").Value
+                For j = 1 To dataFindResult.Columns.Count - 1
+                    .cells(i + 1, j + 1) = dataFindResult.Rows(i - 1).Cells(j).Value
+                Next
+            Next
+        End With
+
+        
+        ExcelApp.Visible = True
+        ExcelSheet = Nothing
+        ExcelBook = Nothing
+        ExcelApp = Nothing
+    End Sub
+
     
 End Class
