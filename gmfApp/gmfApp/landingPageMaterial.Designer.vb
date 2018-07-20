@@ -34,6 +34,8 @@ Partial Class landingPageMaterial
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.HistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.totalMaterial = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.buttonExport = New System.Windows.Forms.Button()
         Me.dataFindResult = New System.Windows.Forms.DataGridView()
         Me.buttonSearch = New System.Windows.Forms.Button()
@@ -96,6 +98,8 @@ Partial Class landingPageMaterial
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.GroupBox1.Controls.Add(Me.totalMaterial)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.buttonExport)
         Me.GroupBox1.Controls.Add(Me.dataFindResult)
         Me.GroupBox1.Controls.Add(Me.buttonSearch)
@@ -105,6 +109,28 @@ Partial Class landingPageMaterial
         Me.GroupBox1.Size = New System.Drawing.Size(660, 465)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'totalMaterial
+        '
+        Me.totalMaterial.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.totalMaterial.AutoSize = True
+        Me.totalMaterial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.totalMaterial.Location = New System.Drawing.Point(49, 426)
+        Me.totalMaterial.Name = "totalMaterial"
+        Me.totalMaterial.Size = New System.Drawing.Size(55, 16)
+        Me.totalMaterial.TabIndex = 14
+        Me.totalMaterial.Text = "totalMat"
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(8, 426)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(45, 16)
+        Me.Label1.TabIndex = 13
+        Me.Label1.Text = "Total :"
         '
         'buttonExport
         '
@@ -122,6 +148,8 @@ Partial Class landingPageMaterial
         Me.dataFindResult.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dataFindResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dataFindResult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dataFindResult.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.Black
@@ -206,5 +234,7 @@ Partial Class landingPageMaterial
     Friend WithEvents buttonExport As System.Windows.Forms.Button
     Friend WithEvents HistoryToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EquipmentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents totalMaterial As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 
 End Class

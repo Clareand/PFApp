@@ -9,9 +9,12 @@ Public Class login
     End Sub
 
     Private Sub buttonLogin_Click(sender As System.Object, e As System.EventArgs) Handles buttonLogin.Click
-        If tbUsername.Text = "" Or tbPassword.Text = "" Then
-            MsgBox("Insert username and password.")
-            Exit Sub
+        If tbUsername.Text = "" And tbPassword.Text = "" Then
+            MsgBox("Please insert username and password.")
+        ElseIf tbUsername.Text = "" And tbPassword.Text <> "" Then
+            MsgBox("Please insert username.")
+        ElseIf tbUsername.Text <> "" And tbPassword.Text = "" Then
+            MsgBox("Please insert password.")
         Else
             Call bukaDB()
             CMD = New MySqlCommand("select * from admin where username='" & tbUsername.Text & "' and password ='" & tbPassword.Text & "'", Conn)
@@ -22,7 +25,7 @@ Public Class login
                 landingPageMaterial.Show()
                 Me.Visible = False
             Else
-                MsgBox("Username or Password not valid.")
+                MsgBox("Username or Password is not valid.")
             End If
         End If
 
