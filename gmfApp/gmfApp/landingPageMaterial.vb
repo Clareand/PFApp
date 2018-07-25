@@ -36,7 +36,7 @@ Public Class landingPageMaterial
 
     Sub HeadersDGV()
 
-        'dataFindResult.Columns("id_material").HeaderText = "PF Code"
+        dataFindResult.Columns("id_material").HeaderText = "PF Code"
         'dataFindResult.Columns("mat_part_number").HeaderText = "Part Number"
         'dataFindResult.Columns("mat_desc").HeaderText = "Material Description"
         'dataFindResult.Columns("mat_brand").HeaderText = "Brand"
