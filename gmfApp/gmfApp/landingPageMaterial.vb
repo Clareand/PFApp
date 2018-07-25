@@ -37,15 +37,16 @@ Public Class landingPageMaterial
     Sub HeadersDGV()
 
         dataFindResult.Columns("id_material").HeaderText = "PF Code"
-        dataFindResult.Columns("mat_part_number").HeaderText = "Part Number"
-        dataFindResult.Columns("mat_desc").HeaderText = "Material Description"
-        dataFindResult.Columns("mat_brand").HeaderText = "Brand"
-        dataFindResult.Columns("mat_stock").HeaderText = "Stock"
-        dataFindResult.Columns("mat_um").HeaderText = "UM"
+        'dataFindResult.Columns("mat_part_number").HeaderText = "Part Number"
+        'dataFindResult.Columns("mat_desc").HeaderText = "Material Description"
+        'dataFindResult.Columns("mat_brand").HeaderText = "Brand"
+        'dataFindResult.Columns("mat_stock").HeaderText = "Stock"
+        'dataFindResult.Columns("mat_um").HeaderText = "UM"
         'dataFindResult.Columns("mat_type").HeaderText = "Type"
         'dataFindResult.Columns("mat_location").HeaderText = "Location"
         'dataFindResult.Columns("mat_remark").HeaderText = "Remarks"
     End Sub
+
 
     Sub totalMat()
         Call bukaDB()
@@ -60,7 +61,7 @@ Public Class landingPageMaterial
     End Sub
 
     Sub TampilAllData()
-        'Call HeadersDGV()
+        Call HeadersDGV()
         Call bukaDB()
 
         Try
