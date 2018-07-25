@@ -11,6 +11,7 @@ Public Class addItemMaterial
     Dim pxcode As String
     Dim axcode As Integer
     Dim Pkid_alt As Integer
+    'test Merge
 
     Private Sub addItemMaterial_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call bukaDB()
