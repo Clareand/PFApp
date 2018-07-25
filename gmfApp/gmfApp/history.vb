@@ -15,4 +15,8 @@ Public Class history
         Me.Close()
         MessageBox.Show("You are logged out!")
     End Sub
+
+    Private Sub buttonExport_Click(sender As System.Object, e As System.EventArgs) Handles buttonExport.Click
+        Call landingPageMaterial.export()
+    End Sub
 End Class
