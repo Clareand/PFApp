@@ -34,7 +34,10 @@ D:\Clara\Kuliah\Semester 4\KP GMF\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.vbpro
 D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.history.resources
 D:\Clara\Kuliah\Semester 4\KP GMF\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.history.resources
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:\Clara\Kuliah\Semester 4\KP GMF\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.vbproj.ResolveComReference.cache
 =======
 D:\GMF AEROASIA\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.vbproj.ResolveComReference.cache
 >>>>>>> fitur
+=======
+>>>>>>> parent of 0c77248... CRUD

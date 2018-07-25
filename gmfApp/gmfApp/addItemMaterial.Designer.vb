@@ -149,7 +149,7 @@ Partial Class addItemMaterial
         Me.tbUniqueCode.Location = New System.Drawing.Point(189, 19)
         Me.tbUniqueCode.Name = "tbUniqueCode"
         Me.tbUniqueCode.Size = New System.Drawing.Size(305, 26)
-        Me.tbUniqueCode.TabIndex = 1
+        Me.tbUniqueCode.TabIndex = 11
         '
         'buttonUniqueCode
         '
@@ -159,7 +159,7 @@ Partial Class addItemMaterial
         Me.buttonUniqueCode.Location = New System.Drawing.Point(509, 18)
         Me.buttonUniqueCode.Name = "buttonUniqueCode"
         Me.buttonUniqueCode.Size = New System.Drawing.Size(77, 27)
-        Me.buttonUniqueCode.TabIndex = 2
+        Me.buttonUniqueCode.TabIndex = 13
         Me.buttonUniqueCode.Text = "Find"
         Me.buttonUniqueCode.UseVisualStyleBackColor = True
         '
@@ -170,7 +170,7 @@ Partial Class addItemMaterial
         Me.buttonAddPN.Location = New System.Drawing.Point(372, 224)
         Me.buttonAddPN.Name = "buttonAddPN"
         Me.buttonAddPN.Size = New System.Drawing.Size(90, 27)
-        Me.buttonAddPN.TabIndex = 19
+        Me.buttonAddPN.TabIndex = 24
         Me.buttonAddPN.Text = "Add More"
         Me.buttonAddPN.UseVisualStyleBackColor = True
         '
@@ -180,7 +180,7 @@ Partial Class addItemMaterial
         Me.buttonClearPN.Location = New System.Drawing.Point(388, 376)
         Me.buttonClearPN.Name = "buttonClearPN"
         Me.buttonClearPN.Size = New System.Drawing.Size(77, 27)
-        Me.buttonClearPN.TabIndex = 12
+        Me.buttonClearPN.TabIndex = 25
         Me.buttonClearPN.Text = "Clear"
         Me.buttonClearPN.UseVisualStyleBackColor = True
         '
@@ -190,7 +190,7 @@ Partial Class addItemMaterial
         Me.buttonSave.Location = New System.Drawing.Point(484, 376)
         Me.buttonSave.Name = "buttonSave"
         Me.buttonSave.Size = New System.Drawing.Size(77, 27)
-        Me.buttonSave.TabIndex = 13
+        Me.buttonSave.TabIndex = 26
         Me.buttonSave.Text = "Save"
         Me.buttonSave.UseVisualStyleBackColor = True
         '
@@ -201,7 +201,7 @@ Partial Class addItemMaterial
         Me.buttonDeleteAlternative.Location = New System.Drawing.Point(574, 224)
         Me.buttonDeleteAlternative.Name = "buttonDeleteAlternative"
         Me.buttonDeleteAlternative.Size = New System.Drawing.Size(77, 27)
-        Me.buttonDeleteAlternative.TabIndex = 21
+        Me.buttonDeleteAlternative.TabIndex = 31
         Me.buttonDeleteAlternative.Text = "Delete"
         Me.buttonDeleteAlternative.UseVisualStyleBackColor = True
         '
@@ -212,7 +212,7 @@ Partial Class addItemMaterial
         Me.buttonEditAlternatif.Location = New System.Drawing.Point(478, 224)
         Me.buttonEditAlternatif.Name = "buttonEditAlternatif"
         Me.buttonEditAlternatif.Size = New System.Drawing.Size(77, 27)
-        Me.buttonEditAlternatif.TabIndex = 20
+        Me.buttonEditAlternatif.TabIndex = 30
         Me.buttonEditAlternatif.Text = "Edit"
         Me.buttonEditAlternatif.UseVisualStyleBackColor = True
         '
@@ -254,7 +254,7 @@ Partial Class addItemMaterial
         Me.comboBoxUM.Location = New System.Drawing.Point(189, 147)
         Me.comboBoxUM.Name = "comboBoxUM"
         Me.comboBoxUM.Size = New System.Drawing.Size(395, 28)
-        Me.comboBoxUM.TabIndex = 8
+        Me.comboBoxUM.TabIndex = 19
         Me.comboBoxUM.Text = "Choose One"
         '
         'Label7
@@ -290,7 +290,7 @@ Partial Class addItemMaterial
         Me.tbStock.Location = New System.Drawing.Point(189, 111)
         Me.tbStock.Name = "tbStock"
         Me.tbStock.Size = New System.Drawing.Size(95, 26)
-        Me.tbStock.TabIndex = 7
+        Me.tbStock.TabIndex = 16
         '
         'Label6
         '
@@ -313,7 +313,7 @@ Partial Class addItemMaterial
         Me.tbRemarksMaterial.Location = New System.Drawing.Point(189, 269)
         Me.tbRemarksMaterial.Name = "tbRemarksMaterial"
         Me.tbRemarksMaterial.Size = New System.Drawing.Size(395, 70)
-        Me.tbRemarksMaterial.TabIndex = 11
+        Me.tbRemarksMaterial.TabIndex = 8
         Me.tbRemarksMaterial.Text = ""
         '
         'comboBoxMaterialType
@@ -328,7 +328,7 @@ Partial Class addItemMaterial
         Me.comboBoxMaterialType.Location = New System.Drawing.Point(189, 182)
         Me.comboBoxMaterialType.Name = "comboBoxMaterialType"
         Me.comboBoxMaterialType.Size = New System.Drawing.Size(395, 28)
-        Me.comboBoxMaterialType.TabIndex = 9
+        Me.comboBoxMaterialType.TabIndex = 10
         Me.comboBoxMaterialType.Text = "Choose One"
         '
         'comboBoxEquipment
@@ -341,7 +341,7 @@ Partial Class addItemMaterial
         Me.comboBoxEquipment.Location = New System.Drawing.Point(179, 242)
         Me.comboBoxEquipment.Name = "comboBoxEquipment"
         Me.comboBoxEquipment.Size = New System.Drawing.Size(314, 28)
-        Me.comboBoxEquipment.TabIndex = 16
+        Me.comboBoxEquipment.TabIndex = 21
         '
         'Label2
         '
@@ -363,7 +363,7 @@ Partial Class addItemMaterial
         Me.tbLocation.Location = New System.Drawing.Point(189, 225)
         Me.tbLocation.Name = "tbLocation"
         Me.tbLocation.Size = New System.Drawing.Size(395, 26)
-        Me.tbLocation.TabIndex = 10
+        Me.tbLocation.TabIndex = 22
         '
         'tbBrand
         '
@@ -373,7 +373,7 @@ Partial Class addItemMaterial
         Me.tbBrand.Location = New System.Drawing.Point(189, 78)
         Me.tbBrand.Name = "tbBrand"
         Me.tbBrand.Size = New System.Drawing.Size(395, 26)
-        Me.tbBrand.TabIndex = 6
+        Me.tbBrand.TabIndex = 14
         '
         'Label10
         '
@@ -406,7 +406,7 @@ Partial Class addItemMaterial
         Me.buttonSearchPN.Location = New System.Drawing.Point(509, 13)
         Me.buttonSearchPN.Name = "buttonSearchPN"
         Me.buttonSearchPN.Size = New System.Drawing.Size(75, 27)
-        Me.buttonSearchPN.TabIndex = 4
+        Me.buttonSearchPN.TabIndex = 24
         Me.buttonSearchPN.Text = "Find"
         Me.buttonSearchPN.UseVisualStyleBackColor = True
         '
@@ -418,7 +418,7 @@ Partial Class addItemMaterial
         Me.tbMaterialDesc.Location = New System.Drawing.Point(189, 45)
         Me.tbMaterialDesc.Name = "tbMaterialDesc"
         Me.tbMaterialDesc.Size = New System.Drawing.Size(395, 26)
-        Me.tbMaterialDesc.TabIndex = 5
+        Me.tbMaterialDesc.TabIndex = 4
         '
         'buttonAddEquipment
         '
@@ -427,7 +427,7 @@ Partial Class addItemMaterial
         Me.buttonAddEquipment.Location = New System.Drawing.Point(499, 242)
         Me.buttonAddEquipment.Name = "buttonAddEquipment"
         Me.buttonAddEquipment.Size = New System.Drawing.Size(75, 27)
-        Me.buttonAddEquipment.TabIndex = 17
+        Me.buttonAddEquipment.TabIndex = 25
         Me.buttonAddEquipment.Text = "Add"
         Me.buttonAddEquipment.UseVisualStyleBackColor = True
         '
@@ -439,7 +439,7 @@ Partial Class addItemMaterial
         Me.tbPartNumber.Location = New System.Drawing.Point(189, 13)
         Me.tbPartNumber.Name = "tbPartNumber"
         Me.tbPartNumber.Size = New System.Drawing.Size(304, 26)
-        Me.tbPartNumber.TabIndex = 3
+        Me.tbPartNumber.TabIndex = 0
         '
         'dataGridViewEquipment
         '
@@ -462,7 +462,6 @@ Partial Class addItemMaterial
         Me.dataGridViewEquipment.Name = "dataGridViewEquipment"
         Me.dataGridViewEquipment.Size = New System.Drawing.Size(663, 186)
         Me.dataGridViewEquipment.TabIndex = 26
-        Me.dataGridViewEquipment.TabStop = False
         '
         'Label1
         '
@@ -483,7 +482,7 @@ Partial Class addItemMaterial
         Me.buttonDeleteEquipment.Location = New System.Drawing.Point(580, 242)
         Me.buttonDeleteEquipment.Name = "buttonDeleteEquipment"
         Me.buttonDeleteEquipment.Size = New System.Drawing.Size(77, 27)
-        Me.buttonDeleteEquipment.TabIndex = 18
+        Me.buttonDeleteEquipment.TabIndex = 27
         Me.buttonDeleteEquipment.Text = "Delete"
         Me.buttonDeleteEquipment.UseVisualStyleBackColor = True
         '
@@ -494,7 +493,7 @@ Partial Class addItemMaterial
         Me.Button1.Location = New System.Drawing.Point(573, 156)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(77, 27)
-        Me.Button1.TabIndex = 15
+        Me.Button1.TabIndex = 35
         Me.Button1.Text = "Delete"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -505,7 +504,7 @@ Partial Class addItemMaterial
         Me.buttonEditMaterial.Location = New System.Drawing.Point(477, 156)
         Me.buttonEditMaterial.Name = "buttonEditMaterial"
         Me.buttonEditMaterial.Size = New System.Drawing.Size(77, 27)
-        Me.buttonEditMaterial.TabIndex = 14
+        Me.buttonEditMaterial.TabIndex = 34
         Me.buttonEditMaterial.Text = "Edit"
         Me.buttonEditMaterial.UseVisualStyleBackColor = True
         '
@@ -529,7 +528,6 @@ Partial Class addItemMaterial
         Me.dataGridViewMaterial.Name = "dataGridViewMaterial"
         Me.dataGridViewMaterial.Size = New System.Drawing.Size(663, 129)
         Me.dataGridViewMaterial.TabIndex = 33
-        Me.dataGridViewMaterial.TabStop = False
         '
         'GroupBox2
         '
@@ -577,7 +575,7 @@ Partial Class addItemMaterial
         Me.dataGridViewAlernatif.Location = New System.Drawing.Point(7, 29)
         Me.dataGridViewAlernatif.Name = "dataGridViewAlernatif"
         Me.dataGridViewAlernatif.Size = New System.Drawing.Size(663, 189)
-        Me.dataGridViewAlernatif.TabIndex = 40
+        Me.dataGridViewAlernatif.TabIndex = 37
         '
         'groupBoxMaterial
         '
