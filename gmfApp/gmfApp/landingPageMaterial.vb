@@ -61,7 +61,7 @@ Public Class landingPageMaterial
     End Sub
 
     Sub TampilAllData()
-        Call HeadersDGV()
+        'Call HeadersDGV()
         Call bukaDB()
 
         Try
