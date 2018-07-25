@@ -353,7 +353,7 @@ Public Class addItemMaterial
             RD = CMD.ExecuteReader
             While RD.Read
                 With tbPartNumber
-                    .AutoCompleteCustomSource.Remove(tbPartNumber.)
+
                     .AutoCompleteCustomSource.Add(RD(0).ToString)
                     .AutoCompleteMode = AutoCompleteMode.Suggest
                     .AutoCompleteSource = AutoCompleteSource.CustomSource

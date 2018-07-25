@@ -47,3 +47,16 @@ G:\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.login.resources
 G:\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.Resources.resources
 G:\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.vbproj.GenerateResource.Cache
 G:\GMFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.exe
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.vbproj.ResolveComReference.cache
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.exe
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.xml
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.pdb
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.addItemMaterial.resources
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.history.resources
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.landingPageMaterial.resources
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.login.resources
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.Resources.resources
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\obj\x86\Debug\gmfApp.vbproj.GenerateResource.Cache
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\bin\Debug\gmfApp.exe
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\bin\Debug\gmfApp.pdb
+D:\Clara\Kuliah\Semester 4\KP GMF\PFapp\PFApp\gmfApp\gmfApp\bin\Debug\gmfApp.xml
