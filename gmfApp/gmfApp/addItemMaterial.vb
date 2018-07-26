@@ -50,7 +50,6 @@ Public Class addItemMaterial
         comboBoxEquipment.ResetText()
         tbLocation.Text = ""
         tbRemarksMaterial.Text = ""
-        Call autocompletePN()
     End Sub
 
     'inisialisasi var Ucode
@@ -258,12 +257,36 @@ Public Class addItemMaterial
 
 
     Sub UpdateMaterial()
-        MsgBox("Update Material")
+        Call bukaDB()
+        Try
+            ubah = "update material set mat_desc=@desc, mat_brand=@brand, mat_stock=@stock, mat_um=@um, mat_type=@type, mat_location=@locat,mat_remark=@remark where id_material ='" & ucode & "'"
+            CMD = Conn.CreateCommand
+            With CMD
+                .Connection = Conn
+                .CommandText = ubah
+                .Parameters.AddWithValue("@desc", tbMaterialDesc.Text)
+                .Parameters.AddWithValue("@brand", tbBrand.Text)
+                .Parameters.AddWithValue("@stock", tbStock.Text)
+                .Parameters.AddWithValue("@um", comboBoxUM.SelectedItem)
+                .Parameters.AddWithValue("@type", comboBoxMaterialType.SelectedItem)
+                .Parameters.AddWithValue("@locat", tbLocation.Text)
+                .Parameters.AddWithValue("@remark", tbRemarksMaterial.Text)
+            End With
+            CMD.ExecuteNonQuery()
+            tbPartNumber.ReadOnly = False
+        Catch ex As Exception
+            MsgBox("Failed Update Material")
+        End Try
     End Sub
 
 
     Sub UpdateAlt()
-        MsgBox("update Alternatif")
+        If dataGridViewAlernatif.CurrentRow.Index <> dataGridViewAlernatif.NewRowIndex Then
+            ubah = "update customer set status='Confirmed' where id=" &
+                dataGridViewAlernatif.Item(0, dataGridViewAlernatif.CurrentRow.Index).Value & ""
+            CMD = New MySql.Data.MySqlClient.MySqlCommand(ubah, Conn)
+            CMD.ExecuteNonQuery()
+        End If
     End Sub
 
 
@@ -324,6 +347,7 @@ Public Class addItemMaterial
         RD = CMD.ExecuteReader
         While RD.Read
             With tbUniqueCode
+                .AutoCompleteCustomSource.Remove(tbPartNumber.AutoCompleteSource)
                 .AutoCompleteCustomSource.Add(RD(0).ToString)
                 .AutoCompleteMode = AutoCompleteMode.Suggest
                 .AutoCompleteSource = AutoCompleteSource.CustomSource
@@ -334,13 +358,15 @@ Public Class addItemMaterial
 
 
     Sub autocompletePN()
+        With tbPartNumber
+            .AutoCompleteCustomSource.Clear()
+        End With
         If var = 2 Then
             bukaDB()
-            CMD = New MySqlCommand("select alt_part_number from alternatif", Conn)
+            CMD = New MySqlCommand("select alt_part_number from alternatif where alt_part_number like '%" & tbPartNumber.Text & "%'", Conn)
             RD = CMD.ExecuteReader
             While RD.Read
                 With tbPartNumber
-                    .AutoCompleteCustomSource.Remove(tbPartNumber.AutoCompleteCustomSource.ToString)
                     .AutoCompleteCustomSource.Add(RD(0).ToString)
                     .AutoCompleteMode = AutoCompleteMode.Suggest
                     .AutoCompleteSource = AutoCompleteSource.CustomSource
@@ -425,6 +451,37 @@ Public Class addItemMaterial
         Call tampilDataEquipment(ucode)
     End Sub
 
+    'editing in textbox
+    Sub viewInTextbox()
+        tbPartNumber.ReadOnly = True
+
+        If var = 1 Then
+            Call bukaDB()
+            CMD = New MySqlCommand("select * from material where id_material ='" & ucode & "'", Conn)
+            RD = CMD.ExecuteReader
+            RD.Read()
+            If RD.HasRows Then
+                tbPartNumber.Text = RD.Item("mat_part_number")
+                tbMaterialDesc.Text = RD.Item("mat_desc")
+                tbBrand.Text = RD.Item("mat_brand")
+                tbStock.Text = RD.Item("mat_stock")
+                comboBoxUM.Text = RD.Item("mat_um")
+                comboBoxMaterialType.Text = RD.Item("mat_type")
+                tbLocation.Text = RD.Item("mat_location")
+                tbRemarksMaterial.Text = RD.Item("mat_remark")
+            End If
+        ElseIf var = 3 Then
+            If dataGridViewAlernatif.CurrentRow.Index <> dataGridViewAlernatif.NewRowIndex Then
+                Call bukaDB()
+                CMD = "select id_alternatif from alternatif where alt_part_number=" &
+                    dataGridViewAlernatif.Item(0, dataGridViewAlernatif.CurrentRow.Index).Value & ""
+                CMD = New MySql.Data.MySqlClient.MySqlCommand(ubah, Conn)
+                CMD.ExecuteNonQuery()
+            End If
+        End If
+
+    End Sub
+
     'Tombol Keluar
     Private Sub toolStripLogOut_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles toolStripLogOut.Click
         Me.Close()
@@ -433,6 +490,7 @@ Public Class addItemMaterial
 
     'Menuju page Landing
     Private Sub toolStripStatus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles toolStripStatus.Click
+        landingPageMaterial.Refresh()
         landingPageMaterial.Show()
         Me.Visible = False
         Call clear()
@@ -484,12 +542,13 @@ Public Class addItemMaterial
     End Sub
 
     Private Sub buttonAddPN_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonAddPN.Click
-        Call autocompletePN()
+
         If tbUniqueCode.Text = "" Or ucode = 0 Then
             MsgBox("Please Insert Code")
         Else
             var = 2
             MsgBox("buttonAddPn, var :" & var)
+            Call autocompletePN()
             Call clearform()
         End If
     End Sub
@@ -500,6 +559,7 @@ Public Class addItemMaterial
         Else
             var = 1
             MsgBox("buttonEditMat, var :" & var)
+            Call viewInTextbox()
         End If
     End Sub
 
@@ -527,4 +587,5 @@ Public Class addItemMaterial
             Call deleteEquipment()
         End If
     End Sub
+
 End Class
