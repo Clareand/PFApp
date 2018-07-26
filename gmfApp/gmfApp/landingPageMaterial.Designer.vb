@@ -34,13 +34,13 @@ Partial Class landingPageMaterial
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.HistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cbSearchType = New System.Windows.Forms.ComboBox()
         Me.totalMaterial = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.buttonExport = New System.Windows.Forms.Button()
         Me.dataFindResult = New System.Windows.Forms.DataGridView()
         Me.buttonSearch = New System.Windows.Forms.Button()
         Me.tbSearchItem = New System.Windows.Forms.TextBox()
-        Me.cbSearchType = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dataFindResult, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,6 +111,18 @@ Partial Class landingPageMaterial
         Me.GroupBox1.Size = New System.Drawing.Size(660, 455)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
+        '
+        'cbSearchType
+        '
+        Me.cbSearchType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cbSearchType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cbSearchType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbSearchType.FormattingEnabled = True
+        Me.cbSearchType.Location = New System.Drawing.Point(436, 18)
+        Me.cbSearchType.Name = "cbSearchType"
+        Me.cbSearchType.Size = New System.Drawing.Size(131, 28)
+        Me.cbSearchType.TabIndex = 15
+        Me.cbSearchType.Text = "Choose One"
         '
         'totalMaterial
         '
@@ -189,7 +201,7 @@ Partial Class landingPageMaterial
         'buttonSearch
         '
         Me.buttonSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonSearch.Location = New System.Drawing.Point(375, 18)
+        Me.buttonSearch.Location = New System.Drawing.Point(573, 18)
         Me.buttonSearch.Name = "buttonSearch"
         Me.buttonSearch.Size = New System.Drawing.Size(75, 29)
         Me.buttonSearch.TabIndex = 7
@@ -198,21 +210,13 @@ Partial Class landingPageMaterial
         '
         'tbSearchItem
         '
+        Me.tbSearchItem.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.tbSearchItem.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.tbSearchItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbSearchItem.Location = New System.Drawing.Point(6, 19)
         Me.tbSearchItem.Name = "tbSearchItem"
-        Me.tbSearchItem.Size = New System.Drawing.Size(225, 26)
+        Me.tbSearchItem.Size = New System.Drawing.Size(424, 26)
         Me.tbSearchItem.TabIndex = 6
-        '
-        'cbSearchType
-        '
-        Me.cbSearchType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbSearchType.FormattingEnabled = True
-        Me.cbSearchType.Items.AddRange(New Object() {"PF Code", "Part Number", "Equipment"})
-        Me.cbSearchType.Location = New System.Drawing.Point(238, 18)
-        Me.cbSearchType.Name = "cbSearchType"
-        Me.cbSearchType.Size = New System.Drawing.Size(131, 28)
-        Me.cbSearchType.TabIndex = 15
         '
         'landingPageMaterial
         '
