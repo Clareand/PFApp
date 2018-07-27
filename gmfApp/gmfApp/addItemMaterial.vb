@@ -552,6 +552,8 @@ Public Class addItemMaterial
     Private Sub toolStripStatus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles toolStripStatus.Click
         landingPageMaterial.Refresh()
         landingPageMaterial.Show()
+        landingPageMaterial.tbSearchItem.Text = ""
+        landingPageMaterial.cbSearchType.Text = "Choose One"
         Me.Visible = False
         Call clear()
     End Sub
