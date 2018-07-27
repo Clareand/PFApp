@@ -114,12 +114,14 @@ Public Class addItemMaterial
         If var = 0 Then
             Call addMaterial()
         ElseIf var = 1 Then
+            tbUniqueCode.Enabled = False
             Call UpdateMaterial()
             var = 0
         ElseIf var = 2 Then
             Call addAlt()
             var = 0
         ElseIf var = 3 Then
+            tbUniqueCode.Enabled = False
             Call UpdateAlt()
             var = 0
         End If
@@ -186,10 +188,11 @@ Public Class addItemMaterial
         Catch ex As Exception
             MsgBox("Failed Add Material")
         End Try
-
+        tbUniqueCode.Enabled = True
     End Sub
 
     Sub addAlt()
+        tbMaterialDesc.Enabled = False
         Call bukaDB()
         CX = New MySqlCommand("select id_alternatif from alternatif where alt_part_number = '" & altcode & "'", Conn)
         RD2 = CX.ExecuteReader
@@ -220,6 +223,13 @@ Public Class addItemMaterial
             Catch ex As Exception
                 MsgBox("Failed Add Alt")
             End Try
+            tbMaterialDesc.Enabled = True
+            tbBrand.Enabled = True
+            tbStock.Enabled = True
+            comboBoxUM.Enabled = True
+            comboBoxMaterialType.Enabled = True
+            tbLocation.Enabled = True
+            tbRemarksMaterial.Enabled = True
             Call addAlt_list()
         End If
     End Sub
@@ -273,7 +283,8 @@ Public Class addItemMaterial
                 .Parameters.AddWithValue("@remark", tbRemarksMaterial.Text)
             End With
             CMD.ExecuteNonQuery()
-            tbPartNumber.ReadOnly = False
+            tbUniqueCode.Enabled = True
+            tbPartNumber.Enabled = True
         Catch ex As Exception
             MsgBox("Failed Update Material")
         End Try
@@ -281,12 +292,38 @@ Public Class addItemMaterial
 
 
     Sub UpdateAlt()
-        If dataGridViewAlernatif.CurrentRow.Index <> dataGridViewAlernatif.NewRowIndex Then
-            ubah = "update customer set status='Confirmed' where id=" &
-                dataGridViewAlernatif.Item(0, dataGridViewAlernatif.CurrentRow.Index).Value & ""
-            CMD = New MySql.Data.MySqlClient.MySqlCommand(ubah, Conn)
+        Call bukaDB()
+        Try
+            ubah = "update alternatif set alt_brand=@brand, alt_stock=@stock, alt_um=@um, alt_type=@type, alt_location=@locat,alt_remark=@remark where id_alternatif ='" & axcode & "'"
+            CMD = Conn.CreateCommand
+            With CMD
+                .Connection = Conn
+                .CommandText = ubah
+                .Parameters.AddWithValue("@desc", tbMaterialDesc.Text)
+                .Parameters.AddWithValue("@brand", tbBrand.Text)
+                .Parameters.AddWithValue("@stock", tbStock.Text)
+                .Parameters.AddWithValue("@um", comboBoxUM.SelectedItem)
+                .Parameters.AddWithValue("@type", comboBoxMaterialType.SelectedItem)
+                .Parameters.AddWithValue("@locat", tbLocation.Text)
+                .Parameters.AddWithValue("@remark", tbRemarksMaterial.Text)
+
+                buttonUniqueCode.Enabled = True
+                buttonSearchPN.Enabled = True
+                tbUniqueCode.Enabled = True
+                tbPartNumber.Enabled = True
+                tbMaterialDesc.Enabled = True
+                tbBrand.Enabled = True
+                tbStock.Enabled = True
+                comboBoxUM.Enabled = True
+                comboBoxMaterialType.Enabled = True
+                tbLocation.Enabled = True
+                tbRemarksMaterial.Enabled = True
+            End With
             CMD.ExecuteNonQuery()
-        End If
+            tbPartNumber.ReadOnly = False
+        Catch ex As Exception
+            MsgBox("Failed Update alternaitf")
+        End Try
     End Sub
 
 
@@ -363,7 +400,7 @@ Public Class addItemMaterial
         End With
         If var = 2 Then
             bukaDB()
-            CMD = New MySqlCommand("select alt_part_number from alternatif where alt_part_number like '%" & tbPartNumber.Text & "%'", Conn)
+            CMD = New MySqlCommand("select alt_part_number from alternatif", Conn)
             RD = CMD.ExecuteReader
             While RD.Read
                 With tbPartNumber
@@ -373,7 +410,6 @@ Public Class addItemMaterial
                 End With
             End While
             Conn.Close()
-
         ElseIf var = 0 Then
             bukaDB()
             CMD = New MySqlCommand("select mat_part_number from material", Conn)
@@ -432,7 +468,7 @@ Public Class addItemMaterial
     Sub deleteEquipment()
         If dataGridViewEquipment.CurrentRow.Index <> dataGridViewEquipment.NewRowIndex Then
             Call bukaDB()
-            CMD = New MySqlCommand("select id_equipment from equipment where equipment_name='" & dataGridViewEquipment.Item(0, dataGridViewAlernatif.CurrentRow.Index).Value & "'", Conn)
+            CMD = New MySqlCommand("select id_equipment from equipment where equipment_name='" & dataGridViewEquipment.Item(0, dataGridViewEquipment.CurrentRow.Index).Value & "'", Conn)
             RD = CMD.ExecuteReader
             If RD.HasRows = True Then
                 While RD.Read
@@ -453,8 +489,10 @@ Public Class addItemMaterial
 
     'editing in textbox
     Sub viewInTextbox()
-        tbPartNumber.ReadOnly = True
-
+        tbUniqueCode.Enabled = False
+        tbPartNumber.Enabled = False
+        buttonUniqueCode.Enabled = False
+        buttonSearchPN.Enabled = False
         If var = 1 Then
             Call bukaDB()
             CMD = New MySqlCommand("select * from material where id_material ='" & ucode & "'", Conn)
@@ -467,17 +505,39 @@ Public Class addItemMaterial
                 tbStock.Text = RD.Item("mat_stock")
                 comboBoxUM.Text = RD.Item("mat_um")
                 comboBoxMaterialType.Text = RD.Item("mat_type")
-                tbLocation.Text = RD.Item("mat_location")
-                tbRemarksMaterial.Text = RD.Item("mat_remark")
+                tbLocation.Text = RD.Item("mat_location").ToString
+                tbRemarksMaterial.Text = RD.Item("mat_remark").ToString
             End If
+            RD.Close()
+
         ElseIf var = 3 Then
-            If dataGridViewAlernatif.CurrentRow.Index <> dataGridViewAlernatif.NewRowIndex Then
-                Call bukaDB()
-                CMD = "select id_alternatif from alternatif where alt_part_number=" &
-                    dataGridViewAlernatif.Item(0, dataGridViewAlernatif.CurrentRow.Index).Value & ""
-                CMD = New MySql.Data.MySqlClient.MySqlCommand(ubah, Conn)
-                CMD.ExecuteNonQuery()
+            tbMaterialDesc.Enabled = False
+            Call bukaDB()
+            CMD = New MySqlCommand("select id_alternatif from alternatif where alt_part_number ='" & dataGridViewAlernatif.Item(1, dataGridViewAlernatif.CurrentRow.Index).Value & "'", Conn)
+            RD = CMD.ExecuteReader
+            RD.Read()
+            If RD.HasRows = True Then
+                axcode = RD.Item("id_alternatif")
+                MsgBox("axcode : " & axcode)
+            Else
+                MsgBox("not found")
             End If
+            RD.Close()
+
+            Call bukaDB()
+            CMD = New MySqlCommand("select * from alternatif where id_alternatif ='" & axcode & "'", Conn)
+            RD = CMD.ExecuteReader
+            RD.Read()
+            If RD.HasRows Then
+                tbPartNumber.Text = RD.Item("alt_part_number")
+                tbBrand.Text = RD.Item("alt_brand")
+                tbStock.Text = RD.Item("alt_stock")
+                comboBoxUM.Text = RD.Item("alt_um")
+                comboBoxMaterialType.Text = RD.Item("alt_type")
+                tbLocation.Text = RD.Item("alt_location").ToString
+                tbRemarksMaterial.Text = RD.Item("alt_remark").ToString
+            End If
+            RD.Close()
         End If
 
     End Sub
@@ -569,6 +629,7 @@ Public Class addItemMaterial
         Else
             var = 3
             MsgBox("buttonEditAlt, var :" & var)
+            Call viewInTextbox()
         End If
     End Sub
 
@@ -586,6 +647,35 @@ Public Class addItemMaterial
         Else
             Call deleteEquipment()
         End If
+    End Sub
+
+    Private Sub tbPartNumber_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbPartNumber.TextChanged
+        If var = 2 Then
+            bukaDB()
+            CMD = New MySqlCommand("select id_alternatif from alternatif where alt_part_number = '" & tbPartNumber.Text & "'", Conn)
+            RD = CMD.ExecuteReader
+            If RD.HasRows = True Then
+                buttonSearchPN.Enabled = False
+                tbMaterialDesc.Enabled = False
+                tbBrand.Enabled = False
+                tbStock.Enabled = False
+                comboBoxUM.Enabled = False
+                comboBoxMaterialType.Enabled = False
+                tbLocation.Enabled = False
+                tbRemarksMaterial.Enabled = False
+            Else
+                buttonSearchPN.Enabled = True
+                tbMaterialDesc.Enabled = True
+                tbBrand.Enabled = True
+                tbStock.Enabled = True
+                comboBoxUM.Enabled = True
+                comboBoxMaterialType.Enabled = True
+                tbLocation.Enabled = True
+                tbRemarksMaterial.Enabled = True
+            End If
+            Conn.Close()
+        End If
+
     End Sub
 
 End Class
