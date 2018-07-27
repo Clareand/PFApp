@@ -116,11 +116,11 @@ Partial Class landingPageMaterial
         '
         Me.cbSearchType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.cbSearchType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbSearchType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbSearchType.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbSearchType.FormattingEnabled = True
-        Me.cbSearchType.Location = New System.Drawing.Point(436, 18)
+        Me.cbSearchType.Location = New System.Drawing.Point(436, 19)
         Me.cbSearchType.Name = "cbSearchType"
-        Me.cbSearchType.Size = New System.Drawing.Size(131, 28)
+        Me.cbSearchType.Size = New System.Drawing.Size(131, 26)
         Me.cbSearchType.TabIndex = 15
         Me.cbSearchType.Text = "Choose One"
         '
@@ -200,7 +200,7 @@ Partial Class landingPageMaterial
         '
         'buttonSearch
         '
-        Me.buttonSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.buttonSearch.Location = New System.Drawing.Point(573, 18)
         Me.buttonSearch.Name = "buttonSearch"
         Me.buttonSearch.Size = New System.Drawing.Size(75, 29)
