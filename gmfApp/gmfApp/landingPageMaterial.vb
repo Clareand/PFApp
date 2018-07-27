@@ -8,7 +8,6 @@ Public Class landingPageMaterial
 
     'FORM LOAD
     Private Sub LandingPage_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.dataFindResult.DefaultCellStyle.WrapMode = DataGridViewTriState.True
         If (addItemMaterial.WindowState = FormWindowState.Maximized) Then
             Me.WindowState = FormWindowState.Maximized
             Call bukaDB()
@@ -40,35 +39,51 @@ Public Class landingPageMaterial
         Me.Visible = False
     End Sub
 
+    'HEADERS COLUMN
+    Sub DGView()
 
-    'TAMPILAN HEADERS
-    Sub HeadersDGV()
+        dataFindResult.DefaultCellStyle.WrapMode = DataGridViewTriState.True
+        dataFindResult.Columns("mat_desc").DefaultCellStyle.WrapMode = DataGridViewTriState.False
+        dataFindResult.Columns("mat_brand").DefaultCellStyle.WrapMode = DataGridViewTriState.False
+        dataFindResult.Columns("mat_um").DefaultCellStyle.WrapMode = DataGridViewTriState.False
+        dataFindResult.Columns("equipment_name").DefaultCellStyle.WrapMode = DataGridViewTriState.False
+        dataFindResult.Columns("mat_type").DefaultCellStyle.WrapMode = DataGridViewTriState.False
+        dataFindResult.Columns("mat_location").DefaultCellStyle.WrapMode = DataGridViewTriState.False
+        dataFindResult.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        dataFindResult.AutoResizeColumns()
 
-        dataFindResult.DataSource = DS.Tables("material, alternatif, equipment equipment_list, alternatif_list")
+        dataFindResult.Columns("id_material").HeaderText = "PF Code"
+        dataFindResult.Columns("mat_part_number").HeaderText = "Part Number"
+        dataFindResult.Columns("mat_desc").HeaderText = "Material Description"
+        dataFindResult.Columns("mat_brand").HeaderText = "Brand"
+        dataFindResult.Columns("mat_stock").HeaderText = "Stock"
+        dataFindResult.Columns("mat_um").HeaderText = "UM"
+        dataFindResult.Columns("mat_type").HeaderText = "Type"
+        dataFindResult.Columns("equipment_name").HeaderText = "Equipment"
+        dataFindResult.Columns("mat_location").HeaderText = "Location"
+        dataFindResult.Columns("mat_remark").HeaderText = "Remarks"
 
-        With dataFindResult
-            .RowHeadersVisible = False
-            .Columns(0).HeaderCell.Value = "PF Code"
-            .Columns(1).HeaderCell.Value = "Part Number"
-            .Columns(2).HeaderCell.Value = "Material Description"
-            .Columns(3).HeaderCell.Value = "Batch"
-            .Columns(4).HeaderCell.Value = "Brand"
-            .Columns(5).HeaderCell.Value = "Stock"
-            .Columns(6).HeaderCell.Value = "UM"
-            .Columns(7).HeaderCell.Value = "Type"
-            .Columns(9).HeaderCell.Value = "Location"
-            .Columns(10).HeaderCell.Value = "Remarks"
-        End With
+        dataFindResult.Columns("id_material").Width = 300
+        dataFindResult.Columns("mat_part_number").Width = 300
+        dataFindResult.Columns("mat_desc").Width = 300
+        dataFindResult.Columns("mat_brand").Width = 300
+        dataFindResult.Columns("mat_stock").Width = 300
+        dataFindResult.Columns("mat_um").Width = 300
+        dataFindResult.Columns("mat_type").Width = 300
+        dataFindResult.Columns("equipment_name").Width = 300
+        dataFindResult.Columns("mat_location").Width = 300
+        dataFindResult.Columns("mat_remark").Width = 300
 
-        'dataFindResult.Columns("id_material").HeaderText = "PF Code"
-        'dataFindResult.Columns("mat_part_number").HeaderText = "Part Number"
-        'dataFindResult.Columns("mat_desc").HeaderText = "Material Description"
-        'dataFindResult.Columns("mat_brand").HeaderText = "Brand"
-        'dataFindResult.Columns("mat_stock").HeaderText = "Stock"
-        'dataFindResult.Columns("mat_um").HeaderText = "UM"
-        'dataFindResult.Columns("mat_type").HeaderText = "Type"
-        'dataFindResult.Columns("mat_location").HeaderText = "Location"
-        'dataFindResult.Columns("mat_remark").HeaderText = "Remarks"
+        dataFindResult.Columns(0).Width = 300
+        dataFindResult.Columns(1).Width = 300
+        dataFindResult.Columns(2).Width = 300
+        dataFindResult.Columns(3).Width = 300
+        dataFindResult.Columns(4).Width = 300
+        dataFindResult.Columns(5).Width = 300
+        dataFindResult.Columns(6).Width = 300
+        dataFindResult.Columns(7).Width = 300
+        dataFindResult.Columns(8).Width = 300
+        dataFindResult.Columns(9).Width = 300
     End Sub
 
     'STATUS TOTAL MATERIAL
@@ -89,17 +104,16 @@ Public Class landingPageMaterial
 
     'TAMPIL ALL DATA
     Sub TampilAllData()
-        'Call HeadersDGV()
         Call bukaDB()
 
         Try
-            DA = New MySqlDataAdapter("SELECT id_material , mat_part_number, mat_desc, mat_brand, mat_stock, mat_um, mat_type, GROUP_CONCAT(equipment_name SEPARATOR ', ') As Equipment, mat_location, mat_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment UNION SELECT id_material, alt_part_number, mat_desc, alt_brand, alt_stock, alt_um, alt_type, equipment_name, alt_location, alt_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material  INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material=alternatif_list.PKid_material INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif ORDER BY id_material asc", Conn)
+            DA = New MySqlDataAdapter("SELECT material.id_material, material.mat_part_number, material.mat_desc, material.mat_brand, material.mat_stock, material.mat_um, material.mat_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, material.mat_location, material.mat_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment group by id_material UNION SELECT material.id_material, alternatif.alt_part_number, material.mat_desc, alternatif.alt_brand, alternatif.alt_stock, alternatif.alt_um, alternatif.alt_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, alternatif.alt_location, alternatif.alt_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material  INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material=alternatif_list.PKid_material INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif group by alt_part_number, id_material ORDER BY id_material", Conn)
             DS = New DataSet
             DA.Fill(DS, "material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.DataSource = DS.Tables("material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.ReadOnly = True
             Conn.Close()
-
+            Call DGView()
         Catch ex As Exception
             MsgBox("Failed Load Data")
         End Try
@@ -121,14 +135,14 @@ Public Class landingPageMaterial
         'EXCEL COLUMN WIDTH
         ExcelApp.Columns(1).ColumnWidth = 15
         ExcelApp.Columns(2).ColumnWidth = 20
-        ExcelApp.Columns(3).ColumnWidth = 30
-        ExcelApp.Columns(4).ColumnWidth = 15
-        ExcelApp.Columns(5).ColumnWidth = 15
-        ExcelApp.Columns(6).ColumnWidth = 20
+        ExcelApp.Columns(3).ColumnWidth = 35
+        ExcelApp.Columns(4).ColumnWidth = 20
+        ExcelApp.Columns(5).ColumnWidth = 20
+        ExcelApp.Columns(6).ColumnWidth = 27
         ExcelApp.Columns(7).ColumnWidth = 25
         ExcelApp.Columns(8).ColumnWidth = 40
         ExcelApp.Columns(9).ColumnWidth = 25
-        ExcelApp.Columns(10).ColumnWidth = 40
+        ExcelApp.Columns(10).ColumnWidth = 50
 
         'EXCEL COLUMN STYLE
         ExcelApp.Range("A1:J1").Font.Bold = True
@@ -202,12 +216,14 @@ Public Class landingPageMaterial
     Sub FindMaterialByUniqueCode()
         Call bukaDB()
         Try
-            DA = New MySqlDataAdapter("SELECT id_material, mat_part_number, mat_desc, mat_brand, mat_stock, mat_um, mat_type, equipment_name, mat_location, mat_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment WHERE id_material='" & tbSearchItem.Text & "' UNION SELECT id_material, alt_part_number, mat_desc, alt_brand, alt_stock, alt_um, alt_type,  equipment_name, alt_location, alt_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material  INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material=alternatif_list.PKid_material INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif WHERE id_material='" & tbSearchItem.Text & "' ORDER BY id_material asc", Conn)
+            DA = New MySqlDataAdapter("SELECT material.id_material, material.mat_part_number, material.mat_desc, material.mat_brand, material.mat_stock, material.mat_um, material.mat_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, material.mat_location, material.mat_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment WHERE id_material='" & tbSearchItem.Text & "' group by id_material UNION SELECT material.id_material, alternatif.alt_part_number, material.mat_desc, alternatif.alt_brand, alternatif.alt_stock, alternatif.alt_um, alternatif.alt_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, alternatif.alt_location, alternatif.alt_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material  INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material=alternatif_list.PKid_material INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif WHERE id_material='" & tbSearchItem.Text & "'  group by alt_part_number, id_material ORDER BY id_material", Conn)
             DS = New DataSet
             DA.Fill(DS, "material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.DataSource = DS.Tables("material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.ReadOnly = True
+            Call DGView()
             Conn.Close()
+            
 
         Catch ex As Exception
             MsgBox("Failed load data from UQ")
@@ -220,11 +236,12 @@ Public Class landingPageMaterial
         Call bukaDB()
 
         Try
-            DA = New MySqlDataAdapter("SELECT id_material, mat_part_number, mat_desc, mat_brand, mat_stock, mat_um, mat_type, equipment_name, mat_location, mat_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment WHERE mat_part_number LIKE '%" & tbSearchItem.Text & "%' UNION SELECT id_material, alt_part_number, mat_desc, alt_brand, alt_stock, alt_um, alt_type,  equipment_name, alt_location, alt_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material  INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material=alternatif_list.PKid_material INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif WHERE mat_part_number LIKE '%" & tbSearchItem.Text & "%' ORDER BY id_material asc", Conn)
+            DA = New MySqlDataAdapter("SELECT material.id_material, material.mat_part_number, material.mat_desc, material.mat_brand, material.mat_stock, material.mat_um, material.mat_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, material.mat_location, material.mat_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment WHERE mat_part_number='" & tbSearchItem.Text & "' group by id_material UNION SELECT material.id_material, alternatif.alt_part_number, material.mat_desc, alternatif.alt_brand, alternatif.alt_stock, alternatif.alt_um, alternatif.alt_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, alternatif.alt_location, alternatif.alt_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material  INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material=alternatif_list.PKid_material INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif WHERE mat_part_number='" & tbSearchItem.Text & "'  group by alt_part_number, id_material ORDER BY id_material", Conn)
             DS = New DataSet
             DA.Fill(DS, "material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.DataSource = DS.Tables("material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.ReadOnly = True
+            Call DGView()
             Conn.Close()
 
         Catch ex As Exception
@@ -241,6 +258,7 @@ Public Class landingPageMaterial
             DA.Fill(DS, "material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.DataSource = DS.Tables("material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.ReadOnly = True
+            Call DGView()
             Conn.Close()
 
         Catch ex As Exception
@@ -266,8 +284,11 @@ Public Class landingPageMaterial
         ElseIf cbSearchType.SelectedItem = "Part Number" Then
             Call FindMaterialByPartNumber()
 
-        Else
+        ElseIf cbSearchType.SelectedItem = "Equipment" Then
             Call FindMaterialByEquipment()
+
+        Else
+            MsgBox("Please Choose Your Search Type.")
         End If
 
 
@@ -331,8 +352,13 @@ Public Class landingPageMaterial
             DS = New DataSet
             DA.Fill(DS, "material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.DataSource = DS.Tables("material, equipment, equipment_list, alternatif, alternatif_list")
-            dataFindResult.ReadOnly = True
-            Conn.Close()
+            If dataFindResult.ReadOnly = True Then
+                dataFindResult.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+                dataFindResult.AutoResizeColumns()
+                Conn.Close()
+            Else
+                MsgBox("Data Not Found.")
+            End If
 
         Catch ex As Exception
             MsgBox("Failed load data.")
@@ -355,4 +381,5 @@ Public Class landingPageMaterial
             Call TampilAllData()
         End If
     End Sub
+
 End Class
