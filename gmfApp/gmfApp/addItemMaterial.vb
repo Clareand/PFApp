@@ -223,6 +223,8 @@ Public Class addItemMaterial
             Catch ex As Exception
                 MsgBox("Failed Add Alt")
             End Try
+            tbUniqueCode.Enabled = True
+            buttonSearchPN.Enabled = True
             tbMaterialDesc.Enabled = True
             tbBrand.Enabled = True
             tbStock.Enabled = True
@@ -680,4 +682,11 @@ Public Class addItemMaterial
 
     End Sub
 
+    Private Sub tbMaterialDesc_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbMaterialDesc.TextChanged
+        If var = 0 And tbMaterialDesc.Text <> "" Then
+            tbUniqueCode.Enabled = False
+        ElseIf tbMaterialDesc.Text = "" Then
+            tbUniqueCode.Enabled = True
+        End If
+    End Sub
 End Class
