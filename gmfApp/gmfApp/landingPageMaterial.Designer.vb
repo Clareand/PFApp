@@ -62,13 +62,13 @@ Partial Class landingPageMaterial
         'MaterialToolStripMenuItem
         '
         Me.MaterialToolStripMenuItem.Name = "MaterialToolStripMenuItem"
-        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MaterialToolStripMenuItem.Text = "Material"
         '
         'EquipmentToolStripMenuItem
         '
         Me.EquipmentToolStripMenuItem.Name = "EquipmentToolStripMenuItem"
-        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EquipmentToolStripMenuItem.Text = "Equipment"
         '
         'toolStripLogOut
@@ -96,8 +96,8 @@ Partial Class landingPageMaterial
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Controls.Add(Me.cbSearchType)
         Me.GroupBox1.Controls.Add(Me.totalMaterial)
@@ -116,12 +116,12 @@ Partial Class landingPageMaterial
         '
         Me.cbSearchType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.cbSearchType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbSearchType.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbSearchType.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbSearchType.FormattingEnabled = True
-        Me.cbSearchType.Location = New System.Drawing.Point(436, 18)
+        Me.cbSearchType.Location = New System.Drawing.Point(436, 19)
         Me.cbSearchType.Name = "cbSearchType"
-        Me.cbSearchType.Size = New System.Drawing.Size(131, 28)
-        Me.cbSearchType.TabIndex = 15
+        Me.cbSearchType.Size = New System.Drawing.Size(131, 26)
+        Me.cbSearchType.TabIndex = 2
         Me.cbSearchType.Text = "Choose One"
         '
         'totalMaterial
@@ -160,8 +160,8 @@ Partial Class landingPageMaterial
         'dataFindResult
         '
         Me.dataFindResult.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dataFindResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dataFindResult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dataFindResult.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
@@ -196,15 +196,15 @@ Partial Class landingPageMaterial
         Me.dataFindResult.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dataFindResult.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dataFindResult.Size = New System.Drawing.Size(648, 343)
-        Me.dataFindResult.TabIndex = 11
+        Me.dataFindResult.TabIndex = 4
         '
         'buttonSearch
         '
-        Me.buttonSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.buttonSearch.Location = New System.Drawing.Point(573, 18)
         Me.buttonSearch.Name = "buttonSearch"
         Me.buttonSearch.Size = New System.Drawing.Size(75, 29)
-        Me.buttonSearch.TabIndex = 7
+        Me.buttonSearch.TabIndex = 3
         Me.buttonSearch.Text = "Search"
         Me.buttonSearch.UseVisualStyleBackColor = True
         '
@@ -216,7 +216,7 @@ Partial Class landingPageMaterial
         Me.tbSearchItem.Location = New System.Drawing.Point(6, 19)
         Me.tbSearchItem.Name = "tbSearchItem"
         Me.tbSearchItem.Size = New System.Drawing.Size(424, 26)
-        Me.tbSearchItem.TabIndex = 6
+        Me.tbSearchItem.TabIndex = 1
         '
         'landingPageMaterial
         '

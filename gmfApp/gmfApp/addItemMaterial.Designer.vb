@@ -180,7 +180,7 @@ Partial Class addItemMaterial
         Me.buttonClearPN.Location = New System.Drawing.Point(388, 376)
         Me.buttonClearPN.Name = "buttonClearPN"
         Me.buttonClearPN.Size = New System.Drawing.Size(77, 27)
-        Me.buttonClearPN.TabIndex = 0
+        Me.buttonClearPN.TabIndex = 100
         Me.buttonClearPN.Text = "Clear"
         Me.buttonClearPN.UseVisualStyleBackColor = True
         '
