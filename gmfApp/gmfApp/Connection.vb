@@ -6,6 +6,7 @@ Module Connection
     Public DA As MySqlDataAdapter
     Public CMD, CX As MySqlCommand
     Public DS As DataSet
+    Public myBindingSource As BindingSource
     Public simpan, ubah, hapus As String
 
     Public Sub bukaDB()

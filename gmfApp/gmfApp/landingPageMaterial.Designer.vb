@@ -62,13 +62,13 @@ Partial Class landingPageMaterial
         'MaterialToolStripMenuItem
         '
         Me.MaterialToolStripMenuItem.Name = "MaterialToolStripMenuItem"
-        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.MaterialToolStripMenuItem.Text = "Material"
         '
         'EquipmentToolStripMenuItem
         '
         Me.EquipmentToolStripMenuItem.Name = "EquipmentToolStripMenuItem"
-        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.EquipmentToolStripMenuItem.Text = "Equipment"
         '
         'toolStripLogOut
@@ -96,8 +96,8 @@ Partial Class landingPageMaterial
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Controls.Add(Me.cbSearchType)
         Me.GroupBox1.Controls.Add(Me.totalMaterial)
@@ -160,8 +160,8 @@ Partial Class landingPageMaterial
         'dataFindResult
         '
         Me.dataFindResult.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dataFindResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dataFindResult.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dataFindResult.BackgroundColor = System.Drawing.SystemColors.ControlLightLight

@@ -10,6 +10,11 @@ Public Class landingPageMaterial
     Private Sub LandingPage_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         If (addItemMaterial.WindowState = FormWindowState.Maximized) Then
             Me.WindowState = FormWindowState.Maximized
+
+            'REFRESH
+            ResetBindings()
+            dataFindResult.Refresh()
+
             Call bukaDB()
             Call TampilAllData()
             Call cbOption()
@@ -94,8 +99,7 @@ Public Class landingPageMaterial
             RD = CMD.ExecuteReader
             RD.Read()
             totalMaterial.Text = RD.Item("COUNT(id_material)")
-            Conn.Close()
-
+     
         Catch ex As Exception
             MsgBox("Total Count Failed")
         End Try
@@ -104,10 +108,13 @@ Public Class landingPageMaterial
 
     'TAMPIL ALL DATA
     Sub TampilAllData()
+
         Call bukaDB()
+        dataFindResult.DataSource = Nothing
+
 
         Try
-            DA = New MySqlDataAdapter("SELECT material.id_material, material.mat_part_number, material.mat_desc, material.mat_brand, material.mat_stock, material.mat_um, material.mat_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, material.mat_location, material.mat_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment group by id_material UNION SELECT material.id_material, alternatif.alt_part_number, material.mat_desc, alternatif.alt_brand, alternatif.alt_stock, alternatif.alt_um, alternatif.alt_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, alternatif.alt_location, alternatif.alt_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material  INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material=alternatif_list.PKid_material INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif group by alt_part_number, id_material ORDER BY id_material", Conn)
+            DA = New MySqlDataAdapter("SELECT material.id_material, material.mat_part_number, material.mat_desc, material.mat_brand, material.mat_stock, material.mat_um, material.mat_type, group_concat(distinct equipment.equipment_name, 0 order by equipment.equipment_name separator ', ') as equipment_name, material.mat_location, material.mat_remark FROM material LEFT JOIN equipment_list ON material.id_material=equipment_list.PKid_material LEFT JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment group by id_material UNION SELECT material.id_material, alternatif.alt_part_number, material.mat_desc, alternatif.alt_brand, alternatif.alt_stock, alternatif.alt_um, alternatif.alt_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, alternatif.alt_location, alternatif.alt_remark FROM material LEFT JOIN equipment_list ON material.id_material=equipment_list.PKid_material  LEFT JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material=alternatif_list.PKid_material INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif group by alt_part_number, id_material ORDER BY id_material", Conn)
             DS = New DataSet
             DA.Fill(DS, "material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.DataSource = DS.Tables("material, equipment, equipment_list, alternatif, alternatif_list")
@@ -216,7 +223,7 @@ Public Class landingPageMaterial
     Sub FindMaterialByUniqueCode()
         Call bukaDB()
         Try
-            DA = New MySqlDataAdapter("SELECT material.id_material, material.mat_part_number, material.mat_desc, material.mat_brand, material.mat_stock, material.mat_um, material.mat_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, material.mat_location, material.mat_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment WHERE id_material='" & tbSearchItem.Text & "' group by id_material UNION SELECT material.id_material, alternatif.alt_part_number, material.mat_desc, alternatif.alt_brand, alternatif.alt_stock, alternatif.alt_um, alternatif.alt_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, alternatif.alt_location, alternatif.alt_remark FROM material INNER JOIN equipment_list ON material.id_material=equipment_list.PKid_material  INNER JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material=alternatif_list.PKid_material INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif WHERE id_material='" & tbSearchItem.Text & "'  group by alt_part_number, id_material ORDER BY id_material", Conn)
+            DA = New MySqlDataAdapter("SELECT material.id_material, material.mat_part_number, material.mat_desc, material.mat_brand, material.mat_stock, material.mat_um, material.mat_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, material.mat_location, material.mat_remark FROM material LEFT JOIN equipment_list ON material.id_material=equipment_list.PKid_material LEFT JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment WHERE id_material='" & tbSearchItem.Text & "' group by id_material UNION SELECT material.id_material, alternatif.alt_part_number, material.mat_desc, alternatif.alt_brand, alternatif.alt_stock, alternatif.alt_um, alternatif.alt_type, group_concat(distinct equipment.equipment_name order by equipment.equipment_name separator ', ') as equipment_name, alternatif.alt_location, alternatif.alt_remark FROM material LEFT JOIN equipment_list ON material.id_material=equipment_list.PKid_material LEFT JOIN equipment ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN alternatif_list ON material.id_material=alternatif_list.PKid_material INNER JOIN alternatif ON alternatif.id_alternatif=alternatif_list.PKid_alternatif WHERE id_material='" & tbSearchItem.Text & "'  group by alt_part_number, id_material ORDER BY id_material", Conn)
             DS = New DataSet
             DA.Fill(DS, "material, equipment, equipment_list, alternatif, alternatif_list")
             dataFindResult.DataSource = DS.Tables("material, equipment, equipment_list, alternatif, alternatif_list")
@@ -382,4 +389,7 @@ Public Class landingPageMaterial
         End If
     End Sub
 
+    Private Sub dataFindResult_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dataFindResult.CellContentClick
+        TampilAllData()
+    End Sub
 End Class
