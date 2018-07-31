@@ -6,7 +6,18 @@ gmfApp
 </name>
 </assembly>
 <members>
-<member name="P:gmfApp.My.Resources.Resources.ResourceManager">
+<member name="M:gmfApp.DrawHelpers.RoundRectangle(System.Drawing.Rectangle,System.Int32)">
+	<summary>
+ Elegant GDI Theme
+ Creator: Xertz (HF)
+ Version: 1.0
+ Control Count: 17
+ Date Created: 25/12/2013
+ UID: 1602992
+ For any bugs / errors, PM me.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:gmfApp.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>

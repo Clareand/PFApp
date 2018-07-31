@@ -2,7 +2,7 @@
 
 Public Class addItemMaterial
 
-    Dim ucode As Integer
+    Dim ucode As String
     Dim pncode As String
     Dim altcode As String
     Dim equip_id As Integer
@@ -55,7 +55,7 @@ Public Class addItemMaterial
     'inisialisasi var Ucode
     Sub initUcode()
         If tbUniqueCode.Text <> "" And tbPartNumber.Text = "" Then
-            ucode = CInt(tbUniqueCode.Text)
+            ucode = tbUniqueCode.Text
 
         ElseIf tbUniqueCode.Text = "" And tbPartNumber.Text <> "" Then
             Call initPN()
@@ -140,21 +140,30 @@ Public Class addItemMaterial
 
         Try
             bukaDB()
-            CMD = New MySqlCommand("select id_material from material where id_material = '" & ucode & "'", Conn)
+            CMD = New MySqlCommand("select id_material from material where id_material = '" & ucode & "'", Conn) 'checking if material are exist in DB
             RD = CMD.ExecuteReader
             RD.Read()
             If RD.HasRows Then
                 Call bukaDB()
-                simpan = "insert into equipment_list (PKid_material,PKid_equipment) values (?,?)"
-                CMD = Conn.CreateCommand
-                With CMD
-                    .CommandText = simpan
-                    .Connection = Conn
-                    .Parameters.Add("R1", MySqlDbType.Int16).Value = ucode
-                    .Parameters.Add("R2", MySqlDbType.Int16).Value = equip_id
-                    .ExecuteNonQuery()
-                    MsgBox("Succes addEquipment")
-                End With
+                CX = New MySqlCommand("select PKid_material,PKid_equipment from equipment_list where PKid_equipment='" & equip_id & "' and PKid_material ='" & ucode & "'", Conn)
+                RD2 = CX.ExecuteReader
+                RD2.Read()
+                If RD2.HasRows Then
+                    MsgBox("Data Already Saved")
+                Else
+                    Call bukaDB()
+                    simpan = "insert into equipment_list (PKid_material,PKid_equipment) values (?,?)"
+                    CMD = Conn.CreateCommand
+                    With CMD
+                        .CommandText = simpan
+                        .Connection = Conn
+                        .Parameters.Add("R1", MySqlDbType.Int16).Value = ucode
+                        .Parameters.Add("R2", MySqlDbType.Int16).Value = equip_id
+                        .ExecuteNonQuery()
+                        MsgBox("Succes addEquipment")
+                    End With
+                End If
+                RD2.Close()
             End If
             RD.Close()
         Catch ex As Exception
@@ -188,6 +197,7 @@ Public Class addItemMaterial
         Catch ex As Exception
             MsgBox("Failed Add Material")
         End Try
+        Call initPN()
         tbUniqueCode.Enabled = True
     End Sub
 
@@ -200,7 +210,7 @@ Public Class addItemMaterial
         If RD.HasRows Then
             axcode = RD2.Item("id_alternatif")
             RD2.Close()
-            Call addAlt_list()
+            Call addAlt_list(axcode)
         Else
             Call bukaDB()
             Try
@@ -232,38 +242,46 @@ Public Class addItemMaterial
             comboBoxMaterialType.Enabled = True
             tbLocation.Enabled = True
             tbRemarksMaterial.Enabled = True
-            Call addAlt_list()
+            Call bukaDB()
+            CX = New MySqlCommand("select id_alternatif from alternatif where alt_part_number='" & altcode & "'", Conn)
+            RD2 = CX.ExecuteReader
+            RD2.Read()
+            If RD2.HasRows Then
+                axcode = RD2.Item("id_alternatif")
+                MsgBox("axcode:" & axcode)
+            End If
+            RD2.Close()
+            Call addAlt_list(axcode)
         End If
     End Sub
 
-    Sub addAlt_list()
+    Sub addAlt_list(ByVal axcode As Integer)
         Call bukaDB()
-        CX = New MySqlCommand("select id_alternatif from alternatif where alt_part_number='" & altcode & "'", Conn)
+        CX = New MySqlCommand("select PKid_alternatif,PKid_material from alternatif_list where PKid_alternatif='" & axcode & "' and PKid_material ='" & ucode & "'", Conn)
         RD2 = CX.ExecuteReader
         RD2.Read()
         If RD2.HasRows Then
-            axcode = RD2.Item("id_alternatif")
-            MsgBox("axcode:" & axcode)
+            MsgBox("Data Already Saved")
+        Else
+            Call bukaDB()
+            Try
+                simpan = "INSERT INTO alternatif_list (PKid_material, PKid_alternatif) VALUES (?,?)"
+                CMD = Conn.CreateCommand
+                With CMD
+                    .CommandText = simpan
+                    .Connection = Conn
+                    .Parameters.Add("A1", MySqlDbType.Int16).Value = ucode
+                    .Parameters.Add("A2", MySqlDbType.Int16).Value = axcode
+                    .ExecuteNonQuery()
+                    MsgBox("success Add Alt_list")
+                End With
+                Conn.Close()
+            Catch ex As Exception
+                MsgBox("Failed Add Alt")
+            End Try
+            axcode = 0
         End If
         RD2.Close()
-
-        Call bukaDB()
-        Try
-            simpan = "INSERT INTO alternatif_list (PKid_material, PKid_alternatif) VALUES (?,?)"
-            CMD = Conn.CreateCommand
-            With CMD
-                .CommandText = simpan
-                .Connection = Conn
-                .Parameters.Add("A1", MySqlDbType.Int16).Value = ucode
-                .Parameters.Add("A2", MySqlDbType.Int16).Value = axcode
-                .ExecuteNonQuery()
-                MsgBox("success Add Alt_list")
-            End With
-            Conn.Close()
-        Catch ex As Exception
-            MsgBox("Failed Add Alt")
-        End Try
-        axcode = 0
     End Sub
 
 
@@ -286,7 +304,9 @@ Public Class addItemMaterial
             End With
             CMD.ExecuteNonQuery()
             tbUniqueCode.Enabled = True
+            buttonUniqueCode.Enabled = True
             tbPartNumber.Enabled = True
+            buttonSearchPN.Enabled = True
         Catch ex As Exception
             MsgBox("Failed Update Material")
         End Try
@@ -332,8 +352,7 @@ Public Class addItemMaterial
 
 
     'Mencari Material melalui ID_MATERIAL alias Code Unique yang akan tampil di dataGridViewMaterial
-    Sub findMaterial(ByVal ucode As Integer)
-
+    Sub findMaterial(ByVal ucode As String)
         Try
             DA = New MySqlDataAdapter("SELECT DISTINCT id_material 'Code', mat_part_number 'Part Number', mat_desc 'Description', mat_brand 'Brand', mat_stock 'Stock', mat_um 'UM', mat_type 'Type', mat_location 'Location', mat_remark 'Remark' FROM material where id_material ='" & ucode & "'", Conn)
             DS = New DataSet
@@ -344,12 +363,16 @@ Public Class addItemMaterial
             MsgBox("Failed Find Material")
         End Try
 
+        'if data not found
+        If dataGridViewMaterial.RowCount = 1 Then
+            MsgBox("Data Not Found")
+        End If
+
     End Sub
 
 
     'Mencari Material melalui ID_MATERIAL alias Code Unique yang akan tampil di dataGridViewAlternatif
-    Sub findAlternatif(ByVal ucode As Integer)
-
+    Sub findAlternatif(ByVal ucode As String)
         Try
             DA = New MySqlDataAdapter("select id_material 'material', alt_part_number 'Part Number', alt_brand 'Brand', alt_stock 'Stock', alt_UM 'UM', alt_type 'Type', alt_remark 'Remark' from material inner join alternatif on id_material='" & ucode & "' where id_alternatif in(select PKid_alternatif from alternatif_list where PKid_material in (select id_material from material where id_material='" & ucode & "'))", Conn)
             DS = New DataSet
@@ -429,7 +452,7 @@ Public Class addItemMaterial
     End Sub
 
     'Memanggil Equipment yang di Add di Material
-    Sub tampilDataEquipment(ByVal ucode As Integer)
+    Sub tampilDataEquipment(ByVal ucode As String)
         Try
             DA = New MySqlDataAdapter("SELECT equipment_name 'Equipment' FROM equipment INNER JOIN equipment_list ON equipment_list.PKid_equipment=equipment.id_equipment INNER JOIN material ON material.id_material=equipment_list.PKid_material WHERE id_material='" & ucode & "'", Conn)
             DS = New DataSet
@@ -443,7 +466,7 @@ Public Class addItemMaterial
 
     End Sub
 
-    'delete alternatif'
+    'delete section'
 
     Sub deleteAlt()
         If dataGridViewAlernatif.CurrentRow.Index <> dataGridViewAlernatif.NewRowIndex Then
@@ -489,6 +512,20 @@ Public Class addItemMaterial
         Call tampilDataEquipment(ucode)
     End Sub
 
+
+    Sub deletematerial(ByVal ucode As String)
+        Try
+            Call bukaDB()
+            hapus = "delete from material where id_material='" & ucode & "'"
+            CMD = New MySql.Data.MySqlClient.MySqlCommand(hapus, Conn)
+            CMD.ExecuteNonQuery()
+            MsgBox("Delete Material Success")
+        Catch ex As Exception
+            MsgBox("Delete Failed")
+        End Try
+        tbPartNumber.Text = ""
+    End Sub
+
     'editing in textbox
     Sub viewInTextbox()
         tbUniqueCode.Enabled = False
@@ -496,50 +533,67 @@ Public Class addItemMaterial
         buttonUniqueCode.Enabled = False
         buttonSearchPN.Enabled = False
         If var = 1 Then
-            Call bukaDB()
-            CMD = New MySqlCommand("select * from material where id_material ='" & ucode & "'", Conn)
-            RD = CMD.ExecuteReader
-            RD.Read()
-            If RD.HasRows Then
-                tbPartNumber.Text = RD.Item("mat_part_number")
-                tbMaterialDesc.Text = RD.Item("mat_desc")
-                tbBrand.Text = RD.Item("mat_brand")
-                tbStock.Text = RD.Item("mat_stock")
-                comboBoxUM.Text = RD.Item("mat_um")
-                comboBoxMaterialType.Text = RD.Item("mat_type")
-                tbLocation.Text = RD.Item("mat_location").ToString
-                tbRemarksMaterial.Text = RD.Item("mat_remark").ToString
-            End If
-            RD.Close()
-
-        ElseIf var = 3 Then
-            tbMaterialDesc.Enabled = False
-            Call bukaDB()
-            CMD = New MySqlCommand("select id_alternatif from alternatif where alt_part_number ='" & dataGridViewAlernatif.Item(1, dataGridViewAlernatif.CurrentRow.Index).Value & "'", Conn)
-            RD = CMD.ExecuteReader
-            RD.Read()
-            If RD.HasRows = True Then
-                axcode = RD.Item("id_alternatif")
-                MsgBox("axcode : " & axcode)
+            If dataGridViewMaterial.RowCount = 1 Then
+                tbUniqueCode.Enabled = True
+                buttonUniqueCode.Enabled = True
+                tbPartNumber.Enabled = True
+                buttonSearchPN.Enabled = True
+                MsgBox("There's No Data Selected")
             Else
-                MsgBox("not found")
+                Call bukaDB()
+                CMD = New MySqlCommand("select * from material where id_material ='" & ucode & "'", Conn)
+                RD = CMD.ExecuteReader
+                RD.Read()
+                If RD.HasRows Then
+                    tbPartNumber.Text = RD.Item("mat_part_number")
+                    tbMaterialDesc.Text = RD.Item("mat_desc")
+                    tbBrand.Text = RD.Item("mat_brand")
+                    tbStock.Text = RD.Item("mat_stock")
+                    comboBoxUM.Text = RD.Item("mat_um")
+                    comboBoxMaterialType.Text = RD.Item("mat_type")
+                    tbLocation.Text = RD.Item("mat_location").ToString
+                    tbRemarksMaterial.Text = RD.Item("mat_remark").ToString
+                End If
+                RD.Close()
             End If
-            RD.Close()
+            
+        ElseIf var = 3 Then
+            If dataGridViewAlernatif.RowCount = 1 Then
 
-            Call bukaDB()
-            CMD = New MySqlCommand("select * from alternatif where id_alternatif ='" & axcode & "'", Conn)
-            RD = CMD.ExecuteReader
-            RD.Read()
-            If RD.HasRows Then
-                tbPartNumber.Text = RD.Item("alt_part_number")
-                tbBrand.Text = RD.Item("alt_brand")
-                tbStock.Text = RD.Item("alt_stock")
-                comboBoxUM.Text = RD.Item("alt_um")
-                comboBoxMaterialType.Text = RD.Item("alt_type")
-                tbLocation.Text = RD.Item("alt_location").ToString
-                tbRemarksMaterial.Text = RD.Item("alt_remark").ToString
+                MsgBox("There's No Data Selected")
+                tbUniqueCode.Enabled = True
+                buttonUniqueCode.Enabled = True
+                tbPartNumber.Enabled = True
+                buttonSearchPN.Enabled = True
+            Else
+                Call bukaDB()
+                CMD = New MySqlCommand("select id_alternatif from alternatif where alt_part_number ='" & dataGridViewAlernatif.Item(1, dataGridViewAlernatif.CurrentRow.Index).Value & "'", Conn)
+                RD = CMD.ExecuteReader
+                RD.Read()
+                If RD.HasRows = True Then
+                    axcode = RD.Item("id_alternatif")
+                    MsgBox("axcode : " & axcode)
+                Else
+                    MsgBox("not found")
+                End If
+                RD.Close()
+
+                Call bukaDB()
+                CMD = New MySqlCommand("select * from alternatif where id_alternatif ='" & axcode & "'", Conn)
+                RD = CMD.ExecuteReader
+                RD.Read()
+                If RD.HasRows Then
+                    tbMaterialDesc.Enabled = False
+                    tbPartNumber.Text = RD.Item("alt_part_number")
+                    tbBrand.Text = RD.Item("alt_brand")
+                    tbStock.Text = RD.Item("alt_stock")
+                    comboBoxUM.Text = RD.Item("alt_um")
+                    comboBoxMaterialType.Text = RD.Item("alt_type")
+                    tbLocation.Text = RD.Item("alt_location").ToString
+                    tbRemarksMaterial.Text = RD.Item("alt_remark").ToString
+                End If
+                RD.Close()
             End If
-            RD.Close()
         End If
 
     End Sub
@@ -552,7 +606,7 @@ Public Class addItemMaterial
 
     'Menuju page Landing
     Private Sub toolStripStatus_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles toolStripStatus.Click
-        landingPageMaterial.Refresh()
+        landingPageMaterial.TampilAllData()
         landingPageMaterial.Show()
         landingPageMaterial.tbSearchItem.Text = ""
         landingPageMaterial.cbSearchType.Text = "Choose One"
@@ -571,9 +625,9 @@ Public Class addItemMaterial
     Private Sub buttonUniqueCode_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonUniqueCode.Click
         Call initUcode()
         MsgBox("ButtonFind, Ucode: " & ucode)
-        Call findMaterial(ucode)
         Call findAlternatif(ucode)
         Call tampilDataEquipment(ucode)
+        Call findMaterial(ucode)
     End Sub
 
     'Button menambahkan equipment menggunakan sub addEquipment
@@ -587,9 +641,9 @@ Public Class addItemMaterial
     Private Sub buttonSearchPN_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonSearchPN.Click
 
         Call initUcode()
-        Call findMaterial(ucode)
         Call findAlternatif(ucode)
         Call tampilDataEquipment(ucode)
+        Call findMaterial(ucode)
     End Sub
 
 
@@ -601,6 +655,7 @@ Public Class addItemMaterial
         Call findAlternatif(ucode)
         Call tampilDataEquipment(ucode)
         MsgBox("var =" & var)
+        Call autocompleteUcode()
         Call autocompletePN()
         Call clearform()
     End Sub
@@ -669,7 +724,7 @@ Public Class addItemMaterial
                 tbRemarksMaterial.Enabled = False
             Else
                 buttonSearchPN.Enabled = True
-                tbMaterialDesc.Enabled = True
+                tbMaterialDesc.Enabled = False
                 tbBrand.Enabled = True
                 tbStock.Enabled = True
                 comboBoxUM.Enabled = True
@@ -684,9 +739,25 @@ Public Class addItemMaterial
 
     Private Sub tbMaterialDesc_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbMaterialDesc.TextChanged
         If var = 0 And tbMaterialDesc.Text <> "" Then
+            tbUniqueCode.Text = ""
             tbUniqueCode.Enabled = False
         ElseIf tbMaterialDesc.Text = "" Then
             tbUniqueCode.Enabled = True
         End If
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        If dataGridViewMaterial.RowCount = 1 Then
+            MsgBox("No data Selected")
+        Else
+            MsgBox(ucode)
+            Call deletematerial(ucode)
+            ucode = 0
+            MsgBox(ucode)
+            Call findMaterial(ucode)
+            Call tampilDataEquipment(ucode)
+            Call findAlternatif(ucode)
+        End If
+       
     End Sub
 End Class

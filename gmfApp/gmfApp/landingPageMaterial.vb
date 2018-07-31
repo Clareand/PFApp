@@ -99,11 +99,6 @@ Public Class landingPageMaterial
             RD = CMD.ExecuteReader
             RD.Read()
             totalMaterial.Text = RD.Item("COUNT(id_material)")
-<<<<<<< HEAD
-     
-=======
-
->>>>>>> master
         Catch ex As Exception
             MsgBox("Total Count Failed")
         End Try
@@ -239,6 +234,9 @@ Public Class landingPageMaterial
         Catch ex As Exception
             MsgBox("Failed load data from UQ")
         End Try
+        If dataFindResult.RowCount = 1 Then
+            MsgBox("Data Not Found")
+        End If
     End Sub
 
 
@@ -258,6 +256,10 @@ Public Class landingPageMaterial
         Catch ex As Exception
             MsgBox("Failed load data from PN")
         End Try
+
+        If dataFindResult.RowCount = 1 Then
+            MsgBox("Data Not Found")
+        End If
     End Sub
 
     'SEARCH EQUIPMENT
@@ -275,6 +277,10 @@ Public Class landingPageMaterial
         Catch ex As Exception
             MsgBox("Failed load data from Equip")
         End Try
+
+        If dataFindResult.RowCount = 1 Then
+            MsgBox("Data Not Found")
+        End If
     End Sub
 
     'TAMPILAN COMBO BOX OPTION
