@@ -99,7 +99,11 @@ Public Class landingPageMaterial
             RD = CMD.ExecuteReader
             RD.Read()
             totalMaterial.Text = RD.Item("COUNT(id_material)")
+<<<<<<< HEAD
      
+=======
+
+>>>>>>> master
         Catch ex As Exception
             MsgBox("Total Count Failed")
         End Try
@@ -230,7 +234,7 @@ Public Class landingPageMaterial
             dataFindResult.ReadOnly = True
             Call DGView()
             Conn.Close()
-            
+
 
         Catch ex As Exception
             MsgBox("Failed load data from UQ")
