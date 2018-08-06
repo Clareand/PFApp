@@ -28,8 +28,10 @@ Public Class landingPageMaterial
 
     'TOOLSSTRIP LOGOUT
     Private Sub toolStripLogOut_Click(sender As System.Object, e As System.EventArgs) Handles toolStripLogOut.Click
-        Me.Close()
         MessageBox.Show("You are logged out!")
+        login.Show()
+        login.tbPassword.Text = ""
+        login.tbUsername.Text = ""
     End Sub
 
     'TOOLSTRIP MATERIAL
@@ -100,7 +102,7 @@ Public Class landingPageMaterial
             RD.Read()
             totalMaterial.Text = RD.Item("COUNT(id_material)")
         Catch ex As Exception
-            MsgBox("Total Count Failed")
+            MsgBox("Failed to count")
         End Try
     End Sub
 
@@ -232,7 +234,7 @@ Public Class landingPageMaterial
 
 
         Catch ex As Exception
-            MsgBox("Failed load data from UQ")
+            MsgBox("Failed load data")
         End Try
         If dataFindResult.RowCount = 1 Then
             MsgBox("Data Not Found")
@@ -254,7 +256,7 @@ Public Class landingPageMaterial
             Conn.Close()
 
         Catch ex As Exception
-            MsgBox("Failed load data from PN")
+            MsgBox("Failed load data")
         End Try
 
         If dataFindResult.RowCount = 1 Then
@@ -275,7 +277,7 @@ Public Class landingPageMaterial
             Conn.Close()
 
         Catch ex As Exception
-            MsgBox("Failed load data from Equip")
+            MsgBox("Failed load data")
         End Try
 
         If dataFindResult.RowCount = 1 Then
@@ -293,7 +295,7 @@ Public Class landingPageMaterial
     'INIT SEARCH
     Sub Search()
         input = tbSearchItem.Text
-        MsgBox(input)
+        'MsgBox(input)
 
         If cbSearchType.SelectedItem = "PF Code" Then
             Call FindMaterialByUniqueCode()
@@ -361,7 +363,7 @@ Public Class landingPageMaterial
     Sub ordb()
         input = tbSearchItem.Text
 
-        MsgBox(input)
+        'MsgBox(input)
 
         Call bukaDB()
         Try
@@ -374,11 +376,11 @@ Public Class landingPageMaterial
                 dataFindResult.AutoResizeColumns()
                 Conn.Close()
             Else
-                MsgBox("Data Not Found.")
+                MsgBox("Data Not Found")
             End If
 
         Catch ex As Exception
-            MsgBox("Failed load data.")
+            MsgBox("Failed load data")
         End Try
     End Sub
 

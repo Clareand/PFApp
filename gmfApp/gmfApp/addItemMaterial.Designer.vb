@@ -25,12 +25,14 @@ Partial Class addItemMaterial
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(addItemMaterial))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.toolStripStatus = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripAddItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MaterialToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EquipmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HistoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.toolStripLogOut = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -100,7 +102,7 @@ Partial Class addItemMaterial
         '
         'toolStripAddItem
         '
-        Me.toolStripAddItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaterialToolStripMenuItem, Me.EquipmentToolStripMenuItem})
+        Me.toolStripAddItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MaterialToolStripMenuItem})
         Me.toolStripAddItem.Name = "toolStripAddItem"
         Me.toolStripAddItem.Size = New System.Drawing.Size(43, 20)
         Me.toolStripAddItem.Text = "Item"
@@ -108,14 +110,8 @@ Partial Class addItemMaterial
         'MaterialToolStripMenuItem
         '
         Me.MaterialToolStripMenuItem.Name = "MaterialToolStripMenuItem"
-        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.MaterialToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.MaterialToolStripMenuItem.Text = "Material"
-        '
-        'EquipmentToolStripMenuItem
-        '
-        Me.EquipmentToolStripMenuItem.Name = "EquipmentToolStripMenuItem"
-        Me.EquipmentToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
-        Me.EquipmentToolStripMenuItem.Text = "Equipment"
         '
         'HistoryToolStripMenuItem
         '
@@ -167,7 +163,7 @@ Partial Class addItemMaterial
         '
         Me.buttonAddPN.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonAddPN.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonAddPN.Location = New System.Drawing.Point(372, 224)
+        Me.buttonAddPN.Location = New System.Drawing.Point(406, 224)
         Me.buttonAddPN.Name = "buttonAddPN"
         Me.buttonAddPN.Size = New System.Drawing.Size(90, 27)
         Me.buttonAddPN.TabIndex = 20
@@ -199,7 +195,7 @@ Partial Class addItemMaterial
         '
         Me.buttonDeleteAlternative.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonDeleteAlternative.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonDeleteAlternative.Location = New System.Drawing.Point(574, 224)
+        Me.buttonDeleteAlternative.Location = New System.Drawing.Point(583, 224)
         Me.buttonDeleteAlternative.Name = "buttonDeleteAlternative"
         Me.buttonDeleteAlternative.Size = New System.Drawing.Size(77, 27)
         Me.buttonDeleteAlternative.TabIndex = 31
@@ -210,7 +206,7 @@ Partial Class addItemMaterial
         '
         Me.buttonEditAlternatif.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonEditAlternatif.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonEditAlternatif.Location = New System.Drawing.Point(478, 224)
+        Me.buttonEditAlternatif.Location = New System.Drawing.Point(501, 224)
         Me.buttonEditAlternatif.Name = "buttonEditAlternatif"
         Me.buttonEditAlternatif.Size = New System.Drawing.Size(77, 27)
         Me.buttonEditAlternatif.TabIndex = 21
@@ -339,7 +335,7 @@ Partial Class addItemMaterial
         Me.comboBoxEquipment.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.comboBoxEquipment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.comboBoxEquipment.FormattingEnabled = True
-        Me.comboBoxEquipment.Location = New System.Drawing.Point(179, 242)
+        Me.comboBoxEquipment.Location = New System.Drawing.Point(180, 242)
         Me.comboBoxEquipment.Name = "comboBoxEquipment"
         Me.comboBoxEquipment.Size = New System.Drawing.Size(314, 28)
         Me.comboBoxEquipment.TabIndex = 17
@@ -425,7 +421,7 @@ Partial Class addItemMaterial
         '
         Me.buttonAddEquipment.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonAddEquipment.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonAddEquipment.Location = New System.Drawing.Point(499, 242)
+        Me.buttonAddEquipment.Location = New System.Drawing.Point(500, 242)
         Me.buttonAddEquipment.Name = "buttonAddEquipment"
         Me.buttonAddEquipment.Size = New System.Drawing.Size(75, 27)
         Me.buttonAddEquipment.TabIndex = 18
@@ -459,6 +455,14 @@ Partial Class addItemMaterial
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dataGridViewEquipment.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dataGridViewEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dataGridViewEquipment.DefaultCellStyle = DataGridViewCellStyle2
         Me.dataGridViewEquipment.Location = New System.Drawing.Point(7, 33)
         Me.dataGridViewEquipment.Name = "dataGridViewEquipment"
         Me.dataGridViewEquipment.Size = New System.Drawing.Size(663, 186)
@@ -491,7 +495,7 @@ Partial Class addItemMaterial
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(573, 156)
+        Me.Button1.Location = New System.Drawing.Point(578, 156)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(77, 27)
         Me.Button1.TabIndex = 15
@@ -502,7 +506,7 @@ Partial Class addItemMaterial
         '
         Me.buttonEditMaterial.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.buttonEditMaterial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonEditMaterial.Location = New System.Drawing.Point(477, 156)
+        Me.buttonEditMaterial.Location = New System.Drawing.Point(495, 156)
         Me.buttonEditMaterial.Name = "buttonEditMaterial"
         Me.buttonEditMaterial.Size = New System.Drawing.Size(77, 27)
         Me.buttonEditMaterial.TabIndex = 14
@@ -515,15 +519,23 @@ Partial Class addItemMaterial
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dataGridViewMaterial.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dataGridViewMaterial.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataGridViewMaterial.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dataGridViewMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dataGridViewMaterial.DefaultCellStyle = DataGridViewCellStyle4
         Me.dataGridViewMaterial.GridColor = System.Drawing.SystemColors.ControlDarkDark
         Me.dataGridViewMaterial.Location = New System.Drawing.Point(7, 19)
         Me.dataGridViewMaterial.Name = "dataGridViewMaterial"
@@ -564,15 +576,23 @@ Partial Class addItemMaterial
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dataGridViewAlernatif.BackgroundColor = System.Drawing.SystemColors.ControlLightLight
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Info
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dataGridViewAlernatif.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(52, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Info
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dataGridViewAlernatif.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dataGridViewAlernatif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("MS Reference Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dataGridViewAlernatif.DefaultCellStyle = DataGridViewCellStyle6
         Me.dataGridViewAlernatif.Location = New System.Drawing.Point(7, 29)
         Me.dataGridViewAlernatif.Name = "dataGridViewAlernatif"
         Me.dataGridViewAlernatif.Size = New System.Drawing.Size(663, 189)
@@ -664,7 +684,6 @@ Partial Class addItemMaterial
     Friend WithEvents toolStripAddItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents toolStripLogOut As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MaterialToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EquipmentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents buttonUniqueCode As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents tbUniqueCode As System.Windows.Forms.TextBox
